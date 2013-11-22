@@ -26,7 +26,14 @@ namespace Pohui.Controllers
         public ActionResult UploadCreative(UploadedCreative uploadedCreative)
         {
             repository.AddNewCreative(uploadedCreative, User.Identity.Name);
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("ChaptersEdit", "Creative");
         }
+        [Authorize]
+        public ActionResult ChaptersEdit()
+        {
+
+            return View();
+        }
+
     }
 }
