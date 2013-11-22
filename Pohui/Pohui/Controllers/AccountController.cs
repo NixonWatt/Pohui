@@ -77,7 +77,7 @@ namespace Pohui.Controllers
                 // Попытка зарегистрировать пользователя
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.Login, model.Password);
+                    WebSecurity.CreateUserAndAccount(model.Login, model.Password, new { Email = model.Email });
                     WebSecurity.Login(model.Login, model.Password);
                     return RedirectToAction("Index", "Home");
                 }

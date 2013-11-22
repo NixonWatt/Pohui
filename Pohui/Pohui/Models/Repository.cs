@@ -25,26 +25,13 @@ namespace Pohui.Models
                 Votes = 0,
                 Path = creative.Name + "/",
                 Name = creative.Name,
-                Tags = creative.Description.GetTagsFromText(),
+                Tags = creative.Tags.GetTagsFromText(),
                 User = usr.Login
             };
             db.Creatives.Add(newCreative);
             foreach (var uploadedTag in newCreative.Tags)
-            {
-                if (db.Tags.Contains(uploadedTag))
-                    foreach (var tag in db.Tags)
-                    {
-                        if (tag.Name == uploadedTag.Name)
-                        {
-                            tag.Creatives.Add(newCreative);
-                        }
-                    }
-                else
-                    db.Tags.Add(uploadedTag);
-            }
+                db.Tags.Add(uploadedTag);
             db.SaveChanges();
         }
-
-
     }
 }

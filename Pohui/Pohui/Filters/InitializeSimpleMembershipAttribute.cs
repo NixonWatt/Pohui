@@ -36,9 +36,9 @@ namespace Pohui.Filters
                             // Создание базы данных SimpleMembership без схемы миграции Entity Framework
                             ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                         }
-                    }
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "Login", autoCreateTables: true);
+                    }
+                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "User", "UserId", "Login", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {
