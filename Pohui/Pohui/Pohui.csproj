@@ -191,9 +191,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201311212048160_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.cs" />
-    <Compile Include="Migrations\201311212048160_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.Designer.cs">
-      <DependentUpon>201311212048160_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.cs</DependentUpon>
+    <Compile Include="Migrations\201311231605158_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.cs" />
+    <Compile Include="Migrations\201311231605158_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.Designer.cs">
+      <DependentUpon>201311231605158_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -285,8 +285,8 @@
   <ItemGroup>
     <Content Include="App_LocalResources\Resources.en.resx" />
     <Content Include="App_LocalResources\Resource.resx" />
-    <EmbeddedResource Include="Migrations\201311212048160_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.resx">
-      <DependentUpon>201311212048160_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201311231605158_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.resx">
+      <DependentUpon>201311231605158_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

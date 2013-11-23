@@ -8,8 +8,7 @@ namespace Pohui.Models
     public class Chapter
     {
         public int Id { get; set; }
-        public string Path { get; set; }
+        public string Content { get; set; }
         public string Name { get; set; }
-        public Creative Creative { get; set; }
     }
 }
