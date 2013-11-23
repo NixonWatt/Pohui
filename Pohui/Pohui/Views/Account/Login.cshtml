@@ -18,9 +18,9 @@
         <legend>Форма входа</legend>
         <ol>
             <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
+                @Html.LabelFor(m => m.Login)
+                @Html.TextBoxFor(m => m.Login)
+                @Html.ValidationMessageFor(m => m.Login)
             </li>
             <li>
                 @Html.LabelFor(m => m.Password)
@@ -40,11 +40,5 @@
 }
 </section>
 
-<section class="social" id="socialLoginForm">
-    <h2>Используйте для входа другую службу.</h2>
-    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-</section>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
