@@ -15,6 +15,7 @@ namespace Pohui.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        private Repository repository = new Repository();
         //
         // GET: /Account/Login
 
@@ -140,6 +141,30 @@ namespace Pohui.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = ("Admin"))]
+        public ActionResult Administration()
+        {
+            var users = repository.GetAllUsers();
+            return View(users);
+        }
+
+        public ActionResult Profile(int id)
+        {
+            var user = repository.GetUserById(id);
+            return View(user);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            repository.DeleteUserById(id);
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult DropAdmin(int id)
+        {
+            repository.Admin(id);
+            return RedirectToAction("Index", "Home");
+        }
         #region Вспомогательные методы
         private ActionResult RedirectToLocal(string returnUrl)
         {

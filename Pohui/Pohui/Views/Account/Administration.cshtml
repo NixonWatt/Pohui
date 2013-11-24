@@ -1,0 +1,24 @@
+﻿@model ICollection<Pohui.Models.User>
+@{
+    ViewBag.Title = "Administration";
+}
+
+<h2>Administration</h2>
+@foreach (var user in Model)
+{
+    if (User.Identity.Name != user.Login)
+    {
+    <a href="Account/Profile?id=@user.UserId">@user.Login</a>
+    <a href="Account/Delete?id=@user.UserId">Delete</a>
+    <a href="Account/DropPassword?id=@user.UserId">Reset Password</a>
+        if (Roles.IsUserInRole(user.Login, "Admin"))
+        {
+            <a href="Account/MakeAdmin?id=@user.UserId">Make as User</a>
+        }
+        else
+        {
+            <a href="Account/MakeAdmin?id=@user.UserId">Make as Admin</a>  
+        }
+         
+    }
+}

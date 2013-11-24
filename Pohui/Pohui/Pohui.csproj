@@ -276,6 +276,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Creative\UploadCreative.cshtml" />
     <Content Include="Views\Creative\ChaptersEdit.cshtml" />
+    <Content Include="Views\Account\Administration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
