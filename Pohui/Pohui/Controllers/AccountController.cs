@@ -78,6 +78,9 @@ namespace Pohui.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.Login, model.Password, new { Email = model.Email });
+                    if (model.Login == "Admin")
+                        Roles.AddUserToRole("Admin", "Admin");
+                    else Roles.AddUserToRole(model.Login, "User");
                     WebSecurity.Login(model.Login, model.Password);
                     return RedirectToAction("Index", "Home");
                 }

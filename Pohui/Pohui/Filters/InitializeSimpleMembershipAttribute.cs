@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebMatrix.WebData;
 using Pohui.Models;
 
@@ -39,6 +40,12 @@ namespace Pohui.Filters
 
                     }
                     WebSecurity.InitializeDatabaseConnection("DefaultConnection", "User", "UserId", "Login", autoCreateTables: true);
+                    if (!Roles.RoleExists("Admin"))
+                    {
+                        Roles.CreateRole("Admin");
+                    }
+                    if (!Roles.RoleExists("User"))
+                        Roles.CreateRole("User");
                 }
                 catch (Exception ex)
                 {
