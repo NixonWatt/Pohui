@@ -408,7 +408,7 @@ C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\bin\ru\System.Spatial.res
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.csprojResolveAssemblyReference.cache
-C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.Migrations.DbMigrationsConfigurationAutomaticMigrationsEnabledtrue.resources
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.csproj.GenerateResource.Cache
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.dll
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.pdb
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.App_LocalResources.Resource.resources
