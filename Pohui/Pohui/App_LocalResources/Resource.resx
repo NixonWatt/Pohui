@@ -172,7 +172,7 @@
     <value>Пароль</value>
   </data>
   <data name="ProfilePage" xml:space="preserve">
-    <value>Страница Профиля</value>
+    <value>Страница профиля</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Зарегестрироваться</value>
@@ -187,12 +187,30 @@
     <value>Тема</value>
   </data>
   <data name="UpploadCrative" xml:space="preserve">
-    <value>Загрузить Креатив</value>
+    <value>Загрузить креатив</value>
   </data>
   <data name="UseForLoginIntoLocalProfile" xml:space="preserve">
     <value>Используйте для входа локальную учетную запись.</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Имя пользователя</value>
+  </data>
+  <data name="Black" xml:space="preserve">
+    <value>Черный</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить пользователя</value>
+  </data>
+  <data name="MakeAsAdmin" xml:space="preserve">
+    <value>Сделать БОГОМ сайта</value>
+  </data>
+  <data name="MakeAsUser" xml:space="preserve">
+    <value>Сделать смертным</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Сбросить пароль</value>
+  </data>
+  <data name="White" xml:space="preserve">
+    <value>Белый</value>
   </data>
 </root>

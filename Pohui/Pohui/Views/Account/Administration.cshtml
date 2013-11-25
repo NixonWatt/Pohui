@@ -1,24 +1,25 @@
-﻿@model ICollection<Pohui.Models.User>
+﻿@using MyRes = Resources.Resource
+@model ICollection<Pohui.Models.User>
 @{
     ViewBag.Title = "Administration";
 }
 
 <h2>Administration</h2>
 @foreach (var user in Model)
-{
-    if (User.Identity.Name != user.Login)
+{<div>
+    @if (User.Identity.Name != user.Login)
     {
-    <a href="Account/Profile?id=@user.UserId">@user.Login</a>
-    <a href="Account/Delete?id=@user.UserId">Delete</a>
-    <a href="Account/DropPassword?id=@user.UserId">Reset Password</a>
+    <a class="btn btn-default btn-lg" href="#">@user.Login</a>
+    <a class="btn btn-danger" href="Delete?id=@user.UserId">@MyRes.Delete</a>
+    <a class="btn btn-warning" href="DropPassword?id=@user.UserId">@MyRes.ResetPassword</a>
         if (Roles.IsUserInRole(user.Login, "Admin"))
         {
-            <a href="Account/MakeAdmin?id=@user.UserId">Make as User</a>
+            <a class="btn btn-success" href="DropAdmin?id=@user.UserId">@MyRes.MakeAsUser</a>
         }
         else
         {
-            <a href="Account/MakeAdmin?id=@user.UserId">Make as Admin</a>  
+            <a class="btn btn-primary" href="DropAdmin?id=@user.UserId">@MyRes.MakeAsAdmin</a>  
         }
          
-    }
+    }</div>
 }
