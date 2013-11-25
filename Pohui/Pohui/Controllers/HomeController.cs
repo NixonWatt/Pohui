@@ -28,6 +28,39 @@ namespace Pohui.Controllers
 
             return View();
         }
-
+        public ActionResult SetTheme(string theme)
+        {
+            HttpCookie cookie = Request.Cookies["Theme"];
+            if (cookie == null)
+            {
+                cookie = new HttpCookie("cookieValue");
+                cookie.Name = "Theme";
+                cookie.Value = theme;
+                this.ControllerContext.HttpContext.Response.Cookies.Add(cookie);
+            }
+            else
+            {
+                cookie.Value = theme;
+                this.ControllerContext.HttpContext.Response.Cookies.Set(cookie);
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult SetLanguage(string lang)
+        {
+            HttpCookie cookie = Request.Cookies["Lang"];
+            if (cookie == null)
+            {
+                cookie = new HttpCookie("cookieValue");
+                cookie.Name = "Lang";
+                cookie.Value = lang;
+                this.ControllerContext.HttpContext.Response.Cookies.Add(cookie);
+            }
+            else
+            {
+                cookie.Value = lang;
+                this.ControllerContext.HttpContext.Response.Cookies.Set(cookie);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -318,3 +318,4 @@ C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\ru\System
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\obj\Debug\Pohui.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\obj\Debug\Pohui.Tests.dll
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\obj\Debug\Pohui.Tests.pdb
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\en\Pohui.resources.dll

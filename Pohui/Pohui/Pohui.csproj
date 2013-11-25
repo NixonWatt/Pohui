@@ -184,6 +184,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_LocalResources\Resources.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -286,7 +291,11 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\Resources.en.resx" />
+    <EmbeddedResource Include="App_LocalResources\Resources.en.resx">
+      <CustomToolNamespace>Resource</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="App_LocalResources\Resource.resx">
       <CustomToolNamespace>Resources</CustomToolNamespace>
       <Generator>PublicResXFileCodeGenerator</Generator>
