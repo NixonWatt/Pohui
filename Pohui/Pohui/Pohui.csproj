@@ -274,9 +274,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Creative\UploadCreative.cshtml" />
     <Content Include="Views\Creative\ChaptersEdit.cshtml" />
     <Content Include="Views\Account\Administration.cshtml" />
+    <Content Include="Views\Creative\UploadChapter.cshtml" />
+    <Content Include="Views\Creative\UploadCreative.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

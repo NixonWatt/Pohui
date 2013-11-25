@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Security;
+using WebMatrix.WebData;
 
 namespace Pohui.Models
 {
@@ -16,7 +17,6 @@ namespace Pohui.Models
             db = new CreativeContext();
         }
 
-
         public void AddNewCreative(UploadedCreative creative, string userName)
         {
             User usr = (from user in db.UserProfiles where user.Login == userName select user).FirstOrDefault();
@@ -24,7 +24,6 @@ namespace Pohui.Models
             {
                 Description = creative.Description,
                 Votes = 0,
-                Path = creative.Name + "/",
                 Name = creative.Name,
                 Tags = creative.Tags.GetTagsFromText(),
                 User = usr.Login
@@ -56,12 +55,46 @@ namespace Pohui.Models
 
         public void Admin(int id)
         {
-            var user = (from users in db.UserProfiles where users.UserId == id select users).FirstOrDefault();
-            if (Roles.IsUserInRole(user.Login, "Admin"))
+            var user = GetUserById(id);
+            if (isAdmin(id))
+            {
                 Roles.RemoveUserFromRole(user.Login, "Admin");
+            }
             else
+            {
                 Roles.AddUserToRole(user.Login, "Admin");
+            }
+            
         }
 
+        public bool isAdmin(int id)
+        {
+            var user = GetUserById(id);
+            if (Roles.IsUserInRole(user.Login, "Admin"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        
+
+        public void DropPassword(int id)
+        {
+            var user = GetUserById(id);
+            var token = WebSecurity.GeneratePasswordResetToken(user.Login);
+            WebSecurity.ResetPassword(token, "droppedpassword");
+        }
+
+        public void AddNewChapter(Chapter chapter)
+        {
+            db.Chapters.Add(chapter);
+            var creative = (from creatives in db.Creatives where creatives.Id == chapter.CreativeId select creatives).FirstOrDefault();
+            creative.Chapters.Add(chapter);
+            db.SaveChanges();
+        }
     }
 }

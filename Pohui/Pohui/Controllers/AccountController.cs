@@ -15,7 +15,7 @@ namespace Pohui.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
-        private Repository repository = new Repository();
+        private readonly Repository repository = new Repository();
         //
         // GET: /Account/Login
 
@@ -148,21 +148,31 @@ namespace Pohui.Controllers
             return View(users);
         }
 
+        [Authorize(Roles = ("Admin"))]
         public ActionResult Profile(int id)
         {
             var user = repository.GetUserById(id);
             return View(user);
         }
 
+        [Authorize(Roles = ("Admin"))]
         public ActionResult Delete(int id)
         {
             repository.DeleteUserById(id);
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize(Roles = ("Admin"))]
         public ActionResult DropAdmin(int id)
         {
             repository.Admin(id);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize(Roles=("Admin"))]
+        public ActionResult DropPassword(int id)
+        {
+            repository.DropPassword(id);
             return RedirectToAction("Index", "Home");
         }
         #region Вспомогательные методы

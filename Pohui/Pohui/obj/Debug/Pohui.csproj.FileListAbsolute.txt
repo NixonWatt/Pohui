@@ -412,3 +412,4 @@ C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.csproj.Ge
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.dll
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.pdb
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.App_LocalResources.Resource.resources
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.Migrations.DbMigrationsConfigurationAutomaticMigrationsEnabledtrue.resources

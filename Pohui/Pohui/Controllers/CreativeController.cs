@@ -31,9 +31,24 @@ namespace Pohui.Controllers
         [Authorize]
         public ActionResult ChaptersEdit()
         {
-
             return View();
         }
 
+        [Authorize]
+        public ActionResult UploadChapter(int id)
+        {
+            ViewBag.ID = id;
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult UploadChapter(Chapter newChapter)
+        {
+            repository.AddNewChapter(newChapter);
+            return RedirectToAction("ChapterEdit", "Creative");
+        }
+
+        
     }
 }

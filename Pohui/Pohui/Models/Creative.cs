@@ -8,7 +8,6 @@ namespace Pohui.Models
     public class Creative
     {
         public int Id { get; set; }
-        public string Path { get; set; }
         public string Description { get; set; }
         public int Votes { get; set; }
         public ICollection<Tag> Tags { get; set; }
