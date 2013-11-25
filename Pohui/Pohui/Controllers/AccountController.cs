@@ -13,6 +13,7 @@ using System.Net;
 
 namespace Pohui.Controllers
 {
+    [Culture]
     [Authorize]
     [InitializeSimpleMembership]
     public class AccountController : Controller

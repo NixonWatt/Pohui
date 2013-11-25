@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Pohui.Filters;
 
 namespace Pohui.Controllers
 {
+    [Culture]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -45,22 +47,26 @@ namespace Pohui.Controllers
             }
             return RedirectToAction("Index");
         }
-        public ActionResult SetLanguage(string lang)
+        public ActionResult ChangeCulture(string lang)
         {
-            HttpCookie cookie = Request.Cookies["Lang"];
-            if (cookie == null)
+            string returnUrl = Request.UrlReferrer.AbsolutePath;
+            List<string> cultures = new List<string>() { "ru", "en" };
+            if (!cultures.Contains(lang))
             {
-                cookie = new HttpCookie("cookieValue");
-                cookie.Name = "Lang";
-                cookie.Value = lang;
-                this.ControllerContext.HttpContext.Response.Cookies.Add(cookie);
+                lang = "ru";
             }
+            HttpCookie cookie = Request.Cookies["Lang"];
+            if (cookie != null)
+                cookie.Value = lang;
             else
             {
+                cookie = new HttpCookie("cookieValue");
+                cookie.HttpOnly = false;
                 cookie.Value = lang;
-                this.ControllerContext.HttpContext.Response.Cookies.Set(cookie);
+                cookie.Expires = DateTime.Now.AddYears(1);
             }
-            return RedirectToAction("Index");
+            Response.Cookies.Add(cookie);
+            return Redirect(returnUrl);
         }
     }
 }

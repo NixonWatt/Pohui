@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Pohui.Models;
+using Pohui.Filters;
 
 namespace Pohui.Controllers
 {
+    [Culture]
     public class CreativeController : Controller
     {
         private Repository repository = new Repository();
