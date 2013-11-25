@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Черный.
+        /// </summary>
+        public static string Black {
+            get {
+                return ResourceManager.GetString("Black", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Изменить Пароль.
         /// </summary>
         public static string ChangePassword {
@@ -120,6 +129,15 @@ namespace Resources {
         public static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить пользователя.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
         
@@ -187,6 +205,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Сделать БОГОМ сайта.
+        /// </summary>
+        public static string MakeAsAdmin {
+            get {
+                return ResourceManager.GetString("MakeAsAdmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сделать смертным.
+        /// </summary>
+        public static string MakeAsUser {
+            get {
+                return ResourceManager.GetString("MakeAsUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Имя.
         /// </summary>
         public static string Name {
@@ -223,7 +259,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Страница Профиля.
+        ///   Ищет локализованную строку, похожую на Страница профиля.
         /// </summary>
         public static string ProfilePage {
             get {
@@ -250,6 +286,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Сбросить пароль.
+        /// </summary>
+        public static string ResetPassword {
+            get {
+                return ResourceManager.GetString("ResetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Теги.
         /// </summary>
         public static string Tags {
@@ -268,7 +313,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Загрузить Креатив.
+        ///   Ищет локализованную строку, похожую на Загрузить креатив.
         /// </summary>
         public static string UpploadCrative {
             get {
@@ -291,6 +336,15 @@ namespace Resources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Белый.
+        /// </summary>
+        public static string White {
+            get {
+                return ResourceManager.GetString("White", resourceCulture);
             }
         }
     }

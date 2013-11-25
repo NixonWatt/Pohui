@@ -8,6 +8,8 @@ using System.Web.Security;
 using WebMatrix.WebData;
 using Pohui.Models;
 using Pohui.Filters;
+using System.Net.Mail;
+using System.Net;
 
 namespace Pohui.Controllers
 {
@@ -83,6 +85,7 @@ namespace Pohui.Controllers
                         Roles.AddUserToRole("Admin", "Admin");
                     else Roles.AddUserToRole(model.Login, "User");
                     WebSecurity.Login(model.Login, model.Password);
+                    SendMail(model);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
@@ -93,6 +96,28 @@ namespace Pohui.Controllers
 
             // Появление этого сообщения означает наличие ошибки; повторное отображение формы
             return View(model);
+        }
+     
+        public static void SendMail(RegisterModel model)
+        {
+            using (MailMessage mail = new MailMessage("nixon31031@gmail.com", model.Email))
+            {
+                mail.Subject = "";
+                string token = Membership.GeneratePassword(10, 5);
+
+                mail.Body = "Перейдите по ссылке " + "http://localhost:2089/confirm?" + model.Login + "&" + token;
+
+                using (SmtpClient sc = new SmtpClient()
+                {
+                    Host = "smtp.gmail.com",
+                    UseDefaultCredentials = false,
+                    EnableSsl = true,
+                    Credentials = new NetworkCredential("nixon31031@gmail.com", "220_360ass")
+                })
+                {
+                    sc.Send(mail);
+                }
+            }
         }
         //
         // GET: /Account/Manage
