@@ -300,7 +300,6 @@ C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui\bin\ru\System.Spatial.reso
 C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui\obj\Debug\Pohui.csprojResolveAssemblyReference.cache
-C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui\obj\Debug\Pohui.Migrations.DbMigrationsConfigurationAutomaticMigrationsEnabledtrue.resources
 C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui\obj\Debug\Pohui.csproj.GenerateResource.Cache
 C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui\obj\Debug\Pohui.dll
 C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui\obj\Debug\Pohui.pdb
@@ -413,3 +412,4 @@ C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.dll
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.pdb
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.App_LocalResources.Resource.resources
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.Migrations.DbMigrationsConfigurationAutomaticMigrationsEnabledtrue.resources
+C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui\obj\Debug\Pohui.App_LocalResources.Resource.resources

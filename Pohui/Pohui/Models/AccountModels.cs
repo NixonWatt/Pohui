@@ -30,17 +30,14 @@ namespace Pohui.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Текущий пароль")]
         public string OldPassword { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "Значение \"{0}\" должно содержать не менее {2} символов.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Новый пароль")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Подтверждение пароля")]
         [Compare("NewPassword", ErrorMessage = "Новый пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
     }
@@ -48,39 +45,32 @@ namespace Pohui.Models
     public class LoginModel
     {
         [Required]
-        [Display(Name = "Имя пользователя")]
+ 
         public string Login { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Пароль")]
         public string Password { get; set; }
-
-        [Display(Name = "Запомнить меня")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "Имя пользователя")]
         public string Login { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "Значение \"{0}\" должно содержать не менее {2} символов.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Пароль")]
         public string Password { get; set; }
 
-        [DataType(DataType.Password)]
-        [Display(Name = "Подтверждение пароля")]
+        [DataType(DataType.Password)]  
         [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
-        [Email(ErrorMessage = "Wrong Email")]
-        [Display(Name = "Email")]
+        [Email(ErrorMessage = "Wrong Email")]      
         public string Email { get; set; }
     }
 

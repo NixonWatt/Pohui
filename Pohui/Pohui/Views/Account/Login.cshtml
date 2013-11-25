@@ -19,18 +19,18 @@
         <legend>@MyRes.LoginForm</legend>
         <ol>
             <li>
-                @Html.LabelFor(m => m.Login)
+              @MyRes.Name
                 @Html.TextBoxFor(m => m.Login)
                 @Html.ValidationMessageFor(m => m.Login)
             </li>
             <li>
-                @Html.LabelFor(m => m.Password)
+              @MyRes.Password
                 @Html.PasswordFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
             </li>
             <li>
                 @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+               @MyRes.RememberMe
             </li>
         </ol>
         <input type="submit" value="@MyRes.LogIn" />

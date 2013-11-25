@@ -1,4 +1,5 @@
-﻿@model Pohui.Models.RegisterModel
+﻿@using MyRes = Resources.Resource
+@model Pohui.Models.RegisterModel
 @{
     ViewBag.Title = "Регистрация";
 }
@@ -13,21 +14,21 @@
                 <fieldset>
                     <legend>Register Form</legend>
                     <div class="form-group">
-                            @Html.LabelFor(m => m.Login, new { @class = "col-lg-3 control-label" })
+                         <p class="col-lg-3 control-label">  @MyRes.Name</p>
                         <div class="col-lg-8">
-                            @Html.TextBoxFor(m => m.Login, new { @class = "form-control", @placeholder = "Login" })
+                            @Html.TextBoxFor(m => m.Login, new { @class = "form-control", @placeholder =  @MyRes.Name })
                         </div>
                     </div>
                     <div class="form-group">
-                            @Html.LabelFor(m => m.Password, new { @class = "col-lg-3 control-label" })
+                         <p class="col-lg-3 control-label">  @MyRes.Password</p>
                         <div class="col-lg-8">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = @MyRes.Password })
                         </div>
                     </div>
                     <div class="form-group">
-                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-lg-3 control-label" })
+                          <p class="col-lg-3 control-label">  @MyRes.ConfirmPassword</p>
                         <div class="col-lg-8">
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = @MyRes.ConfirmPassword })
                         </div>
                     </div>
                     <div class="form-group">
@@ -38,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-6">
-                            <input type="submit" class="btn btn-success" value="Register" />
+                            <input type="submit" class="btn btn-success" value="@MyRes.Register" />
                         </div>
                     </div>
                 </fieldset>
