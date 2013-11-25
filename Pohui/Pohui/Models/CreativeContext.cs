@@ -7,9 +7,9 @@ using System.Data.Entity;
 
 namespace Pohui.Models
 {
-    public class CreativeContext : DbContext
+    public class PohuiContext : DbContext
     {
-        public CreativeContext()
+        public PohuiContext()
             : base("DefaultConnection")
         {
         }

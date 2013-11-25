@@ -190,7 +190,7 @@ namespace Pohui.Controllers
         [Authorize(Roles = ("Admin"))]
         public ActionResult DropAdmin(int id)
         {
-            repository.Admin(id);
+            repository.SetAdminRole(id);
             return RedirectToAction("Index", "Home");
         }
 

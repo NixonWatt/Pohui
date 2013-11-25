@@ -11,10 +11,10 @@ namespace Pohui.Models
 {
     public class Repository
     {
-        private readonly CreativeContext db;
+        private readonly PohuiContext db;
         public Repository()
         {
-            db = new CreativeContext();
+            db = new PohuiContext();
         }
 
         public void AddNewCreative(UploadedCreative creative, string userName)
@@ -48,12 +48,12 @@ namespace Pohui.Models
 
         public void DeleteUserById(int id)
         {
-            var user = (from users in db.UserProfiles where users.UserId == id select users).FirstOrDefault();
+            var user = GetUserById(id);
             db.UserProfiles.Remove(user);
             db.SaveChanges();
         }
 
-        public void Admin(int id)
+        public void SetAdminRole(int id)
         {
             var user = GetUserById(id);
             if (isAdmin(id))
@@ -79,8 +79,6 @@ namespace Pohui.Models
                 return false;
             }
         }
-
-        
 
         public void DropPassword(int id)
         {

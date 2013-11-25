@@ -26,11 +26,11 @@ namespace Pohui.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<CreativeContext>(null);
+                Database.SetInitializer<PohuiContext>(null);
 
                 try
                 {
-                    using (var context = new CreativeContext())
+                    using (var context = new PohuiContext())
                     {
                         if (!context.Database.Exists())
                         {

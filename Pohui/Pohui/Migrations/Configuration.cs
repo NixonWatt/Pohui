@@ -5,14 +5,14 @@ namespace Pohui.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Pohui.Models.CreativeContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Pohui.Models.PohuiContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Pohui.Models.CreativeContext context)
+        protected override void Seed(Pohui.Models.PohuiContext context)
         {
             //  This method will be called after migrating to the latest version.
 

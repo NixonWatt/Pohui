@@ -221,11 +221,11 @@
     <Content Include="Content\themes\Black\bootstrap.css" />
     <Content Include="Content\themes\White\bootstrap.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\themes\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\themes\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\themes\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\themes\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
