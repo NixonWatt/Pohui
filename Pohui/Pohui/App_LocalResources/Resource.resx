@@ -117,7 +117,82 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddCreative" xml:space="preserve">
+    <value>Добавить Креатив</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Изменить Пароль</value>
+  </data>
+  <data name="ChangingPasswordForm" xml:space="preserve">
+    <value>Форма изменения пароля</value>
+  </data>
+  <data name="ChaptersEdit" xml:space="preserve">
+    <value>Изменение глав</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="Discription" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Домой</value>
+  </data>
+  <data name="IfYouDontHaveProfile" xml:space="preserve">
+    <value>если у вас нет учетной записи</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="LoginForm" xml:space="preserve">
+    <value>Форма входа</value>
+  </data>
   <data name="logoff" xml:space="preserve">
     <value>Выйти</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Старый пароль</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="ProfilePage" xml:space="preserve">
+    <value>Страница Профиля</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Зарегестрироваться</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запомнить меня</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Теги</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="UpploadCrative" xml:space="preserve">
+    <value>Загрузить Креатив</value>
+  </data>
+  <data name="UseForLoginIntoLocalProfile" xml:space="preserve">
+    <value>Используйте для входа локальную учетную запись.</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Имя пользователя</value>
   </data>
 </root>

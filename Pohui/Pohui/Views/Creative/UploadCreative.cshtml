@@ -1,24 +1,24 @@
-﻿@model Pohui.Models.Creative
+﻿@using MyRes = Resources.Resource
+@model Pohui.Models.UploadedCreative
 
 @{
-    ViewBag.Title = "UploadCreative";
+    ViewBag.Title = @MyRes.UpploadCrative;
 }
 
-<h2>UploadCreative</h2>
+<h2>@MyRes.UpploadCrative</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Creative</legend>
-
+        <legend></legend>
         <div class="editor-label">
-            @Html.LabelFor(model => model.Path)
+            @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Path)
-            @Html.ValidationMessageFor(model => model.Path)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
         </div>
 
         <div class="editor-label">
@@ -30,29 +30,19 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-        <div class="editor-label">
             @Html.LabelFor(model => model.Tags)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Tags)
             @Html.ValidationMessageFor(model => model.Tags)
         </div>
+       
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="@MyRes.Create" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@MyRes.BackToList, "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

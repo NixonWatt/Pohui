@@ -1,4 +1,5 @@
-﻿@model Pohui.Models.LoginModel
+﻿@using MyRes = Resources.Resource
+@model Pohui.Models.LoginModel
 
 @{
     ViewBag.Title = "Выполнить вход";
@@ -9,13 +10,13 @@
 </hgroup>
 
 <section id="loginForm">
-<h2>Используйте для входа локальную учетную запись.</h2>
+<h2>@MyRes.UseForLoginIntoLocalProfile</h2>
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Форма входа</legend>
+        <legend>@MyRes.LoginForm</legend>
         <ol>
             <li>
                 @Html.LabelFor(m => m.Login)
@@ -32,10 +33,10 @@
                 @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
             </li>
         </ol>
-        <input type="submit" value="Выполнить вход" />
+        <input type="submit" value="@MyRes.LogIn" />
     </fieldset>
     <p>
-        @Html.ActionLink("Зарегистрируйтесь", "Register"), если у вас нет учетной записи.
+        @Html.ActionLink(@MyRes.Register, "Register"), @MyRes.IfYouDontHaveProfile.
     </p>
 }
 </section>

@@ -7,12 +7,10 @@
         </a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <li>
-                <a tabindex="-1" href="\Account\Manage">Change Password</a>
-                <a tabindex="-1" href="\Account\ProfilePage">ProfilePage</a>
+                <a tabindex="-1" href="\Account\Manage">@MyRes.ChangePassword</a>
+                <a tabindex="-1" href="\Account\ProfilePage">@MyRes.ProfilePage</a>
             </li>
-            @*                <li>
-                    <a tabindex="-1" href="\Image\ProfilePage?userName=@User.Identity.Name">Profile</a>
-                </li>*@
+         
         </ul>
     </div>
 </li>
@@ -28,7 +26,7 @@
 else
 {
 
-    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "btn", id = "registerLink" })</li>
-    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "btn", id = "loginLink" })</li>
+    <li>@Html.ActionLink(@MyRes.Register, "Register", "Account", routeValues: null, htmlAttributes: new { @class = "btn", id = "registerLink" })</li>
+    <li>@Html.ActionLink(@MyRes.LogIn, "Login", "Account", routeValues: null, htmlAttributes: new { @class = "btn", id = "loginLink" })</li>
 
 }
