@@ -138,7 +138,7 @@
   <data name="Create" xml:space="preserve">
     <value>Создать</value>
   </data>
-  <data name="Discription" xml:space="preserve">
+  <data name="Description" xml:space="preserve">
     <value>Описание</value>
   </data>
   <data name="Home" xml:space="preserve">
@@ -212,5 +212,8 @@
   </data>
   <data name="White" xml:space="preserve">
     <value>Белый</value>
+  </data>
+  <data name="CreateCreative" xml:space="preserve">
+    <value>Создать креатив</value>
   </data>
 </root>
