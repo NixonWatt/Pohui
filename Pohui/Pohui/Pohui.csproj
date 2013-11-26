@@ -209,10 +209,13 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Repositories\ChapterRepository.cs" />
+    <Compile Include="Repositories\CreativeRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Models\Creative.cs" />
     <Compile Include="Models\CreativeContext.cs" />
     <Compile Include="Models\Like.cs" />
-    <Compile Include="Models\Repository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\UploadedCreative.cs" />
     <Compile Include="Models\Utils.cs" />

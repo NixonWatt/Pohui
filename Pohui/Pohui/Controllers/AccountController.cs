@@ -18,7 +18,7 @@ namespace Pohui.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
-        private readonly Repository repository = new Repository();
+        private readonly UserRepository repository = new UserRepository();
         //
         // GET: /Account/Login
 
@@ -171,21 +171,21 @@ namespace Pohui.Controllers
         [Authorize(Roles = ("Admin"))]
         public ActionResult Administration()
         {
-            var users = repository.GetAllUsers();
+            var users = repository.Search();
             return View(users);
         }
 
         [Authorize(Roles = ("Admin"))]
-        public ActionResult Profile(int id)
+        public ActionResult ProfilePage(int id)
         {
-            var user = repository.GetUserById(id);
+            var user = repository.Search(id);
             return View(user);
         }
 
         [Authorize(Roles = ("Admin"))]
         public ActionResult Delete(int id)
         {
-            repository.DeleteUserById(id);
+            repository.Delete(id);
             return RedirectToAction("Index", "Home");
         }
 

@@ -11,7 +11,8 @@ namespace Pohui.Controllers
     [Culture]
     public class CreativeController : Controller
     {
-        private Repository repository = new Repository();
+        private CreativeRepository creativeRepository = new CreativeRepository();
+        private readonly ChapterRepository chapterRepository = new ChapterRepository();
         public ActionResult Index()
         {
             return View();
@@ -27,7 +28,7 @@ namespace Pohui.Controllers
         [Authorize]
         public ActionResult UploadCreative(UploadedCreative uploadedCreative)
         {
-            repository.AddNewCreative(uploadedCreative, User.Identity.Name);
+            creativeRepository.Create(uploadedCreative, User.Identity.Name);
             return RedirectToAction("ChaptersEdit", "Creative");
         }
         [Authorize]
@@ -47,7 +48,7 @@ namespace Pohui.Controllers
         [HttpPost]
         public ActionResult UploadChapter(Chapter newChapter)
         {
-            repository.AddNewChapter(newChapter);
+            chapterRepository.Create(newChapter);
             return RedirectToAction("ChapterEdit", "Creative");
         }
 
