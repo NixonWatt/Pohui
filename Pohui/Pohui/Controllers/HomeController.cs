@@ -12,6 +12,7 @@ namespace Pohui.Controllers
     {
         public ActionResult Index()
         {
+           
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();
@@ -32,6 +33,7 @@ namespace Pohui.Controllers
         }
         public ActionResult SetTheme(string theme)
         {
+            string returnUrl = Request.UrlReferrer.AbsolutePath;
             HttpCookie cookie = Request.Cookies["Theme"];
             if (cookie == null)
             {
@@ -45,7 +47,7 @@ namespace Pohui.Controllers
                 cookie.Value = theme;
                 this.ControllerContext.HttpContext.Response.Cookies.Set(cookie);
             }
-            return RedirectToAction("Index");
+            return Redirect(returnUrl);
         }
         public ActionResult ChangeCulture(string lang)
         {
@@ -60,7 +62,7 @@ namespace Pohui.Controllers
                 cookie.Value = lang;
             else
             {
-                cookie = new HttpCookie("cookieValue");
+                cookie = new HttpCookie("Lang");
                 cookie.HttpOnly = false;
                 cookie.Value = lang;
                 cookie.Expires = DateTime.Now.AddYears(1);
