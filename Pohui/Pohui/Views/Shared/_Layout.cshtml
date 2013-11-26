@@ -7,7 +7,14 @@
     <title>@ViewBag.Title — приложение ASP.NET MVC</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
+    @if(Request.Cookies["Theme"].Value == "black")
+    {
     <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link href="~/Content/themes/White/bootstrap.css" rel="stylesheet" />
+    }
     <script type="text/javascript" src="~/Scripts/jquery-2.0.3.js"></script>
     <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
@@ -64,8 +71,8 @@
                      <li>   <div  class="btn-group dropup">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Язык <span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="Home/SetLanguage?lang=en">English</a></li>
-                <li><a href="Home/SetLanguage?lang=ru">Русский</a></li>
+                <li><a href="Home/ChangeCulture?lang=en">English</a></li>
+                <li><a href="Home/ChangeCulture?lang=ru">Русский</a></li>
 
             </ul>
                          </div>
