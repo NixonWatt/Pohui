@@ -183,6 +183,7 @@ div.mdd_links a:hover
 div.mdd_editor_wrap
 {
     padding-right: 8px;
+    width:800px;
 }
 textarea.mdd_editor
 {
