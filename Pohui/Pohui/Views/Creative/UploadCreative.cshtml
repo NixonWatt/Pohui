@@ -5,7 +5,7 @@
     ViewBag.Title = @MyRes.UpploadCrative;
 }
 
-<h2>@MyRes.UpploadCrative</h2>
+<h2>@MyRes.CreateCreative</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -14,7 +14,7 @@
     <fieldset>
         <legend></legend>
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
+           @MyRes.Name
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Name)
@@ -22,7 +22,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
+           @MyRes.Description
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Description)
@@ -30,16 +30,16 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Tags)
+           @MyRes.Tags
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Tags)
             @Html.ValidationMessageFor(model => model.Tags)
         </div>
-       
+       <div>
         <p>
             <input type="submit" value="@MyRes.Create" />
-        </p>
+        </p></div>
     </fieldset>
 }
 

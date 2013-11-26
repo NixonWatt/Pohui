@@ -4,5 +4,37 @@
 @{
     ViewBag.Title = "ChaptersEdit";
 }
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Draggable + Sortable</title>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  
+  <script>
+      $(function () {
+          $("#sortable").sortable({
+              revert: true
+          });
+          $("#draggable").draggable({
+              connectToSortable: "#sortable",
+              helper: "clone",
+              revert: "invalid"
+          });
+          $("ul, li").disableSelection();
+      });
+  </script>
+</head>
+<body>
+ 
+<ul>
+  <li id="draggable" class="btn btn-default">Глава 2</li>
+</ul>
+ 
+<ul id="sortable">
+  <li class="btn btn-default">Глава 1</li>
+</ul>
+ <textarea rows="10"></textarea>
+ 
+</body>
 
-<h2>@MyRes.ChaptersEdit</h2>
+

@@ -319,3 +319,4 @@ C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\obj\Debug\Pohui.Tes
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\obj\Debug\Pohui.Tests.dll
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\obj\Debug\Pohui.Tests.pdb
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\en\Pohui.resources.dll
+C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui.Tests\bin\Debug\en\Pohui.resources.dll
