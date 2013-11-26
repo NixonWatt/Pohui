@@ -142,7 +142,7 @@
     <value>Language</value>
   </data>
   <data name="logoff" xml:space="preserve">
-    <value>logoff</value>
+    <value>log off</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -156,7 +156,67 @@
   <data name="Theme" xml:space="preserve">
     <value>Theme</value>
   </data>
-  <data name="UpploadCrative" xml:space="preserve">
-    <value>Uppload Crative</value>
+  <data name="UpploadCreative" xml:space="preserve">
+    <value>Upload Creative</value>
+  </data>
+  <data name="Black" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="ChangingPasswordForm" xml:space="preserve">
+    <value>Changing Password Form</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="CreateCreative" xml:space="preserve">
+    <value>Create Creative</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="IfYouDontHaveProfile" xml:space="preserve">
+    <value>If You Dont Have Profile</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Log  In</value>
+  </data>
+  <data name="LoginForm" xml:space="preserve">
+    <value>Login Form</value>
+  </data>
+  <data name="MakeAsAdmin" xml:space="preserve">
+    <value>Make As Admin</value>
+  </data>
+  <data name="MakeAsUser" xml:space="preserve">
+    <value>Make As User</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Old Password</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="UseForLoginIntoLocalProfile" xml:space="preserve">
+    <value>Use For Login Into Local Profile</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="White" xml:space="preserve">
+    <value>White</value>
   </data>
 </root>

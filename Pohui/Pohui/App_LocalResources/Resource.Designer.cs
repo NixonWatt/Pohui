@@ -133,6 +133,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Создать креатив.
+        /// </summary>
+        public static string CreateCreative {
+            get {
+                return ResourceManager.GetString("CreateCreative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить пользователя.
         /// </summary>
         public static string Delete {
@@ -144,9 +153,9 @@ namespace Resources {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Описание.
         /// </summary>
-        public static string Discription {
+        public static string Description {
             get {
-                return ResourceManager.GetString("Discription", resourceCulture);
+                return ResourceManager.GetString("Description", resourceCulture);
             }
         }
         
