@@ -4,18 +4,27 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title — приложение ASP.NET MVC</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
+<<<<<<< HEAD
      @if (Request.Cookies["Theme"] == null)
     { 
          <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
+=======
+    @if (Request.Cookies["Theme"] == null)
+    { <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
+>>>>>>> 30e9a6d4d0bca54bd6aa0c3e47868b28b8942e91
     }
     else
     {
         if (Request.Cookies["Theme"].Value == "black")
         {
+<<<<<<< HEAD
         <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
+=======
+    <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
+>>>>>>> 30e9a6d4d0bca54bd6aa0c3e47868b28b8942e91
         }
         else
         {
@@ -24,9 +33,15 @@
     }
     <script type="text/javascript" src="~/Scripts/jquery-2.0.3.js"></script>
     <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-    <script src="~/Scripts/jquery-2.0.3.js"></script>
-    <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="~/Scripts/jquery-2.0.3.js"></script>
+  <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+      <script src="~/Scripts/raphael.js"></script>
+     <script src="~/Scripts/g.raphael.js"></script>
+    <script src="~/Scripts/g.line.js"></script>
+    <script src="~/Scripts/g.bar.js"></script>
+    <script src="~/Scripts/g.dot.js"></script>
+    <script src="~/Scripts/g.pie.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.dropdown-toggle').dropdown();
@@ -45,15 +60,20 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="\" class="btn">@MyRes.Home</a>
-
+                           
                         </li>
                         <li>
+<<<<<<< HEAD
                             @Html.ActionLink(@MyRes.AddCreative, "UploadCreative", "Creative")
                         </li>
+=======
+                             @Html.ActionLink(@MyRes.AddCreative, "UploadCreative", "Creative")
+                            </li>
+>>>>>>> 30e9a6d4d0bca54bd6aa0c3e47868b28b8942e91
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @Html.Partial("_LoginPartial")
-                        <li></li>
+                                                <li></li>
                     </ul>
                 </div>
             </div>
@@ -72,30 +92,33 @@
     <footer>
         <div class="navbar navbar-inverse navbar-fixed-bottom">
             <div class="container">
-                <div class="navbar-collapse collapse navbar-inverse-collapse">
-
+                            <div class="navbar-collapse collapse navbar-inverse-collapse" >
+                    
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <div class="btn-group dropup">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Язык <span class="caret"></span></button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="~/Home/ChangeCulture?lang=en">English</a></li>
-                                    <li><a href="~/Home/ChangeCulture?lang=ru">Русский</a></li>
-                                </ul>
-                            </div>
-                            <div class="btn-group dropup">
-                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">@MyRes.Theme <span class="caret"></span></button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="~/Home/SetTheme?theme=black">@MyRes.Black</a></li>
-                                    <li><a href="~/Home/SetTheme?theme=white">@MyRes.White</a></li>
-                                </ul>
-                            </div>
-                        </li>
+                     <li>   <div  class="btn-group dropup">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Язык <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="~/Home/ChangeCulture?lang=en">English</a></li>
+                <li><a href="~/Home/ChangeCulture?lang=ru">Русский</a></li>
+
+            </ul>
+                         </div>
+                         <div  class="btn-group dropup">
+                          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">@MyRes.Theme <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="~/Home/SetTheme?theme=black">@MyRes.Black</a></li>
+                <li><a href="~/Home/SetTheme?theme=white">@MyRes.White</a></li>
+
+            </ul>
+        </div>
+                      </li> 
                     </ul>
                 </div>
             </div>
         </div>
+        
     </footer>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
