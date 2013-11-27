@@ -7,31 +7,19 @@
     <title>@ViewBag.Title</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-    @if (Request.Cookies["Theme"] == null)
-<<<<<<< HEAD
-    {
-        <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
-=======
-    { <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
->>>>>>> 39c184b8605690e8b94d317f5b761014981dcd97
+     @if (Request.Cookies["Theme"] == null)
+    { 
+         <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
     }
     else
     {
         if (Request.Cookies["Theme"].Value == "black")
         {
-<<<<<<< HEAD
-            <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
-        }
-        else
-        {
-            <link href="~/Content/themes/White/bootstrap.css" rel="stylesheet" />
-=======
-    <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
         }
         else
         {
         <link href="~/Content/themes/White/bootstrap.css" rel="stylesheet" />
->>>>>>> 39c184b8605690e8b94d317f5b761014981dcd97
         }
     }
     <script type="text/javascript" src="~/Scripts/jquery-2.0.3.js"></script>
@@ -60,13 +48,8 @@
 
                         </li>
                         <li>
-<<<<<<< HEAD
                             @Html.ActionLink(@MyRes.AddCreative, "UploadCreative", "Creative")
                         </li>
-=======
-                             @Html.ActionLink(@MyRes.AddCreative, "UploadCreative", "Creative")
-                            </li>
->>>>>>> 39c184b8605690e8b94d317f5b761014981dcd97
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @Html.Partial("_LoginPartial")
