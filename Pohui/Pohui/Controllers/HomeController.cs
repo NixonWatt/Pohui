@@ -60,7 +60,7 @@ namespace Pohui.Controllers
                 cookie.Value = lang;
             else
             {
-                cookie = new HttpCookie("cookieValue");
+                cookie = new HttpCookie("Lang");
                 cookie.HttpOnly = false;
                 cookie.Value = lang;
                 cookie.Expires = DateTime.Now.AddYears(1);
