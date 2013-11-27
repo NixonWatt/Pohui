@@ -46,6 +46,23 @@ namespace Pohui.Models
         {
             db.SaveChanges();
         }
+            //create
+            //find by
+            //find one
+            //find all
+            //delete
+            //update
+
+
+        void IRepository.Save()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IRepository.Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

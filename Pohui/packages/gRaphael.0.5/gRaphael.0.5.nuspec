@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>gRaphael</id>
+    <version>0.5</version>
+    <title>gRaphaël JavaScript Vector Charting Library</title>
+    <authors>Dmitry Baranovskiy</authors>
+    <owners>Dmitry Baranovskiy</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>http://g.raphaeljs.com/</projectUrl>
+    <iconUrl>https://nugetgallery.blob.core.windows.net/icons/gRaphael.0.4.1.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>gRaphaël's goal is to help you create stunning charts on your website. It is based on Raphaël graphics library. Check out the demos to see static and interactive charts in action.
+
+      gRaphaël currently supports Firefox 3.0+, Safari 3.0+, Opera 9.5+ and Internet Explorer 6.0+.</description>
+    <summary>gRaphaël's goal is to help you create stunning charts on your website. It is based on Raphaël graphics library. Supports Firefox 3.0+, Safari 3.0+, Chrome 5.0+, Opera 9.5+ and Internet Explorer 6.0+.</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>JavaScript SVG VML graphics</tags>
+    <dependencies>
+      <dependency id="RaphaelJS" version="1.5.2" />
+    </dependencies>
+  </metadata>
+</package>

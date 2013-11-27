@@ -7096,3 +7096,41 @@ td.visible-print {
     display: none !important;
   }
 }
+.get {
+    display:none;
+}
+
+#diagram {
+    float:left;
+    width:600px;
+    height:600px;
+}
+
+/*@font-face {
+      font-family: "Fontin-Sans";
+      src: url(fontin-sans.otf) format("opentype");
+}*/
+/*body {
+    background: #000 url(images/black.png);
+    color: #fff;
+    font: 300 100.1% Fontin-Sans, "Gill Sans", Calibri, "Trebuchet MS", sans-serif;
+}*/
+#holder {
+    height: 800px;
+    position:absolute;
+    width: 800px;
+}
+#copy {
+    bottom: 0;
+    font: 300 .7em Fontin-Sans, "Gill Sans", Calibri, "Trebuchet MS", sans-serif;
+    position: absolute;
+    right: 1em;
+    text-align: right;
+}
+#copy a {
+    color: #fff;
+}
+#holder {
+    width: 800px;
+    height: 800px;
+}

@@ -238,6 +238,17 @@
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\g.bar-min.js" />
+    <Content Include="Scripts\g.bar.js" />
+    <Content Include="Scripts\g.dot-min.js" />
+    <Content Include="Scripts\g.dot.js" />
+    <Content Include="Scripts\g.line-min.js" />
+    <Content Include="Scripts\g.line.js" />
+    <Content Include="Scripts\g.pie-min.js" />
+    <Content Include="Scripts\g.pie.js" />
+    <Content Include="Scripts\g.raphael-min.js" />
+    <Content Include="Scripts\g.raphael.js" />
+    <Content Include="Scripts\init.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
@@ -245,6 +256,7 @@
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -263,6 +275,8 @@
     <Content Include="Scripts\mdd_styles.css" />
     <Content Include="Scripts\mdd_toolbar.png" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\raphael-min.js" />
+    <Content Include="Scripts\raphael.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -301,6 +315,8 @@
     <Content Include="Views\Account\Administration.cshtml" />
     <Content Include="Views\Creative\UploadChapter.cshtml" />
     <Content Include="Views\Creative\UploadCreative.cshtml" />
+    <Content Include="Views\Creative\_MarkDownEditor.cshtml" />
+    <Content Include="Views\Home\_Diagram.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
