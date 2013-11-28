@@ -11,8 +11,10 @@ namespace Pohui.Controllers
     [Culture]
     public class CreativeController : Controller
     {
-        private CreativeRepository creativeRepository = new CreativeRepository();
-        private readonly ChapterRepository chapterRepository = new ChapterRepository();
+        private readonly Repository<Tag> tagRepository = new TagRepository();
+        private readonly Repository<Creative> creativeRepository = new CreativeRepository();
+        private readonly Repository<Chapter> chapterRepository = new ChapterRepository();
+
         public ActionResult Index()
         {
             return View();
@@ -28,11 +30,30 @@ namespace Pohui.Controllers
         [Authorize]
         public ActionResult UploadCreative(UploadedCreative uploadedCreative)
         {
-            creativeRepository.Create(uploadedCreative, User.Identity.Name);
-            return RedirectToAction("ChaptersEdit", "Creative");
+            Creative newCreative = new Creative
+            {
+                Description = uploadedCreative.Description,
+                Votes = 0,
+                Name = uploadedCreative.Name,
+                Tags = uploadedCreative.Tags.GetTagsFromText(),
+                User = User.Identity.Name
+            };
+            creativeRepository.Add(newCreative);
+            creativeRepository.Save();
+            foreach(var tag in newCreative.Tags)
+                tagRepository.Add(tag);
+            tagRepository.Save();
+            return RedirectToAction("Index", "Home");
         }
         [Authorize]
-        public ActionResult ChaptersEdit()
+        public ActionResult ChaptersEdit(int id)
+        {
+            var chapter = chapterRepository.Find(id);
+            return PartialView(chapter);
+        }
+
+        [Authorize]
+        public ActionResult EditCreative(int id)
         {
             return View();
         }
@@ -48,10 +69,9 @@ namespace Pohui.Controllers
         [HttpPost]
         public ActionResult UploadChapter(Chapter newChapter)
         {
-            chapterRepository.Create(newChapter);
+            chapterRepository.Add(newChapter);
+            chapterRepository.Save();
             return RedirectToAction("ChapterEdit", "Creative");
         }
-
-        
     }
 }

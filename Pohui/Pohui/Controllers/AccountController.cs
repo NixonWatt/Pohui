@@ -171,21 +171,21 @@ namespace Pohui.Controllers
         [Authorize(Roles = ("Admin"))]
         public ActionResult Administration()
         {
-            var users = repository.Search();
+            var users = repository.GetAll();
             return View(users);
         }
 
         [Authorize(Roles = ("Admin"))]
         public ActionResult ProfilePage(int id)
         {
-            var user = repository.Search(id);
+            var user = repository.Find(id);
             return View(user);
         }
 
         [Authorize(Roles = ("Admin"))]
         public ActionResult Delete(int id)
         {
-            repository.Delete(id);
+            repository.Delete(repository.Find(id));
             return RedirectToAction("Index", "Home");
         }
 

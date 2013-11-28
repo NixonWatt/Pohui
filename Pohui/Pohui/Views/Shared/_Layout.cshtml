@@ -7,14 +7,24 @@
     <title>@ViewBag.Title — приложение ASP.NET MVC</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
+<<<<<<< HEAD
+     @if (Request.Cookies["Theme"] == null)
+    { 
+         <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
+=======
     @if (Request.Cookies["Theme"] == null)
     { <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
+>>>>>>> 30e9a6d4d0bca54bd6aa0c3e47868b28b8942e91
     }
     else
     {
         if (Request.Cookies["Theme"].Value == "black")
         {
+<<<<<<< HEAD
+        <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
+=======
     <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
+>>>>>>> 30e9a6d4d0bca54bd6aa0c3e47868b28b8942e91
         }
         else
         {
@@ -53,8 +63,13 @@
                            
                         </li>
                         <li>
+<<<<<<< HEAD
+                            @Html.ActionLink(@MyRes.AddCreative, "UploadCreative", "Creative")
+                        </li>
+=======
                              @Html.ActionLink(@MyRes.AddCreative, "UploadCreative", "Creative")
                             </li>
+>>>>>>> 30e9a6d4d0bca54bd6aa0c3e47868b28b8942e91
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @Html.Partial("_LoginPartial")
