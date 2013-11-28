@@ -2,12 +2,23 @@
     ViewBag.Title = "Home Page";
 }
 <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="col-lg-8">     
-  </div>
-    <div class="col-lg-4">
-      @Html.Partial("_Diagram")
-  </div>
-</div>
+    <div class="row-fluid">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-4">
+            @Html.Partial("_Diagram")
+            <div id="Tag"></div>
+        </div>
     </div>
-    
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: '/Creative/TagCloud',
+            success: function (response) {
+                $("#Tag").html(response);
+            }
+        });
+    });
+</script>

@@ -379,6 +379,10 @@
     <Content Include="Views\Creative\UploadCreative.cshtml" />
     <Content Include="Views\Creative\_MarkDownEditor.cshtml" />
     <Content Include="Views\Home\_Diagram.cshtml" />
+    <Content Include="Views\Shared\TagCloud.cshtml" />
+    <Content Include="Views\Account\ProfilePage.cshtml" />
+    <Content Include="Views\Creative\UserCreatives.cshtml" />
+    <Content Include="Views\Creative\EditCreative.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

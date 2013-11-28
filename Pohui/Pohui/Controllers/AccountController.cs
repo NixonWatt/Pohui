@@ -175,10 +175,10 @@ namespace Pohui.Controllers
             return View(users);
         }
 
-        [Authorize(Roles = ("Admin"))]
-        public ActionResult ProfilePage(int id)
+        [Authorize]
+        public ActionResult ProfilePage(string userName)
         {
-            var user = repository.Find(id);
+            var user = repository.FindFirstBy(m => m.Login == userName);
             return View(user);
         }
 

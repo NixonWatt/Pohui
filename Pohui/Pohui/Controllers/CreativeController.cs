@@ -14,6 +14,7 @@ namespace Pohui.Controllers
         private readonly Repository<Tag> tagRepository = new TagRepository();
         private readonly Repository<Creative> creativeRepository = new CreativeRepository();
         private readonly Repository<Chapter> chapterRepository = new ChapterRepository();
+        private readonly Repository<User> userRepository = new UserRepository();
 
         public ActionResult Index()
         {
@@ -40,7 +41,7 @@ namespace Pohui.Controllers
             };
             creativeRepository.Add(newCreative);
             creativeRepository.Save();
-            foreach(var tag in newCreative.Tags)
+            foreach (var tag in newCreative.Tags)
                 tagRepository.Add(tag);
             tagRepository.Save();
             return RedirectToAction("Index", "Home");
@@ -55,7 +56,8 @@ namespace Pohui.Controllers
         [Authorize]
         public ActionResult EditCreative(int id)
         {
-            return View();
+            var creative = creativeRepository.Find(id);
+            return View(creative);
         }
 
         [Authorize]
@@ -73,5 +75,19 @@ namespace Pohui.Controllers
             chapterRepository.Save();
             return RedirectToAction("ChapterEdit", "Creative");
         }
+
+        public ActionResult TagCloud()
+        {
+            var tags = tagRepository.GetAll().ToList();
+            return PartialView(tags);
+        }
+
+        public ActionResult UserCreatives(int id)
+        {
+            string username = userRepository.Find(id).Login;
+            var creatives = creativeRepository.FindAllBy(m => m.User == username).ToList();
+            return PartialView(creatives);
+        }
+
     }
 }

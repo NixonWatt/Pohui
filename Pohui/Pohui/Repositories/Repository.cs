@@ -13,15 +13,15 @@ namespace Pohui.Models
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        private readonly PohuiContext Context;
+        protected readonly PohuiContext Context;
         public Repository()
         {
             Context = new PohuiContext();
         }
 
-        public virtual IQueryable<T> GetAll()
+        public virtual ICollection<T> GetAll()
         {
-            return Context.Set<T>();
+            return Context.Set<T>().ToList();
         }
 
         public virtual IQueryable<T> FindAllBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
@@ -119,6 +119,21 @@ namespace Pohui.Models
 
     public class TagRepository : Repository<Tag>
     {
+        public override ICollection<Tag> GetAll()
+        {
+            var tags = Context.Set<Tag>().OrderBy(m => m.Name).ToList();
+            for (int i = 0; i < tags.Count(); i++)
+            {
+                for (int j = 0; j < tags.Count() - 1; j++)
+                {
+                    if (tags.ElementAt(i).Name == tags.ElementAt(j).Name)
+                    {
+                        tags.Remove(tags.ElementAt(j));
+                    }
+                }
+            }
+            return tags;
+        }
     }
 }
 

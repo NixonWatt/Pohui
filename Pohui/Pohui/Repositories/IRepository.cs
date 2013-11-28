@@ -14,7 +14,7 @@ namespace Pohui.Models
     public interface IRepository<T> : IDisposable where T : class
     {
         void Add(T entity);
-        IQueryable<T> GetAll();
+        ICollection<T> GetAll();
         IQueryable<T> FindAllBy(Expression<Func<T, bool>> predicate);
         T Find(int id);
         T FindFirstBy(Expression<Func<T, bool>> predicate);
