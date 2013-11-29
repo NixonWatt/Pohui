@@ -16,8 +16,8 @@ using Pohui.Models;
         {
             Bind<IUser>().To<UserRepository>();
             Bind<ICreative>().To<CreativeRepository>();
-                    Bind<IChapter>().To<ChapterRepository>();
-                    Bind<ITag>().To<TagRepository>();
+            Bind<IChapter>().To<ChapterRepository>();
+            Bind<ITag>().To<TagRepository>();
             Bind<ILike>().To<LikeRepository>();
         }
     }

@@ -15,6 +15,11 @@ namespace Pohui.Controllers
         private readonly ICreative creativeRepository;
         private readonly IChapter chapterRepository;
 
+        public CreativeController()
+        {
+
+        }
+
         public CreativeController(ITag tag, ICreative creative, IChapter chapter)
         {
             this.tagRepository = tag;
@@ -80,6 +85,11 @@ namespace Pohui.Controllers
             chapterRepository.Create(newChapter);
             chapterRepository.Save();
             return RedirectToAction("ChapterEdit", "Creative");
+        }
+
+        public ActionResult AddLike(int id)
+        {
+            return PartialView();
         }
     }
 }

@@ -14,14 +14,16 @@ using System.Net;
 namespace Pohui.Controllers
 {
     [Culture]
-    [Authorize]
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         private readonly IUser repository;
         //
         // GET: /Account/Login
+        public AccountController()
+        {
 
+        }
 
         public AccountController(IUser user)
         {
@@ -178,7 +180,7 @@ namespace Pohui.Controllers
         public ActionResult Administration()
         {
             var users = repository.GetAll();
-            return View(users);
+            return View(users.ToList());
         }
 
         [Authorize]
