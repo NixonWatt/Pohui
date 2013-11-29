@@ -19,10 +19,15 @@
           $("#sortable").sortable({
               revert: true
           });
+          var i = 3;
           $("#draggable").draggable({
               connectToSortable: "#sortable",
-              helper: "clone",
-              revert: "invalid"
+              helper: "clone", 
+              revert: "invalid",
+              stop: function (event, ui) {
+                  $('#draggable').text('Глава ' + i);
+                  i++;
+              }
           });
           $("ul, li").disableSelection();
       });
@@ -30,14 +35,22 @@
 </head>
 <body>
  
-<ul>
+<ul id="chapterfactory">
   <li id="draggable" class="btn btn-default">Глава 2</li>
 </ul>
  
 <ul id="sortable">
   <li class="btn btn-default">Глава 1</li>
 </ul>
+<<<<<<< HEAD
     @Html.Partial("_MarkDownEditor"); 
+=======
+ 
+    
+   
+    @Html.Partial("_MarkDownEditor");
+ 
+>>>>>>> 736b06af65880eab0055dec8488c8780257295e6
 </body>
 
 
