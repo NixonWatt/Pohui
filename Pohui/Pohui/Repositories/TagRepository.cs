@@ -14,7 +14,7 @@ using System.Data.Objects;
 using System.Data.Objects.DataClasses;
 namespace Pohui.Models
 {
-    public class CreativeRepository : Repository<Creative>, ICreative
+    public class TagRepository : Repository<Tag>, ITag
     {
     }
 }

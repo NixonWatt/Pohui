@@ -8,20 +8,24 @@ using System.Text;
 using System.Web;
 using System.Web.Security;
 using WebMatrix.WebData;
+using System.Data;
+using System.Data.Metadata.Edm;
+using System.Data.Objects;
+using System.Data.Objects.DataClasses;
 
 namespace Pohui.Models
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly PohuiContext Context;
+        private readonly PohuiContext Context;
         public Repository()
         {
             Context = new PohuiContext();
         }
 
-        public virtual ICollection<T> GetAll()
+        public virtual IQueryable<T> GetAll()
         {
-            return Context.Set<T>().ToList();
+            return Context.Set<T>();
         }
 
         public virtual IQueryable<T> FindAllBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
@@ -34,7 +38,7 @@ namespace Pohui.Models
             return Context.Set<T>().Where(predicate).FirstOrDefault();
         }
 
-        public virtual void Add(T entity)
+        public virtual void Create(T entity)
         {
             Context.Set<T>().Add(entity);
         }
@@ -69,70 +73,6 @@ namespace Pohui.Models
         {
             if (Context != null)
                 Context.Dispose();
-        }
-    }
-
-    public class UserRepository : Repository<User>
-    {
-        public void SetAdminRole(int id)
-        {
-            var user = Find(id);
-            if (isAdmin(id))
-            {
-                Roles.RemoveUserFromRole(user.Login, "Admin");
-            }
-            else
-            {
-                Roles.AddUserToRole(user.Login, "Admin");
-            }
-        }
-
-        public bool isAdmin(int id)
-        {
-            var user = Find(id);
-            if (Roles.IsUserInRole(user.Login, "Admin"))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void DropPassword(int id)
-        {
-            var user = Find(id);
-            var token = WebSecurity.GeneratePasswordResetToken(user.Login);
-            WebSecurity.ResetPassword(token, "droppedpassword");
-        }
-    }
-
-    public class CreativeRepository : Repository<Creative>
-    {
-    }
-    
-
-    public class ChapterRepository : Repository<Chapter>
-    {
-    }
-
-    public class TagRepository : Repository<Tag>
-    {
-        public override ICollection<Tag> GetAll()
-        {
-            var tags = Context.Set<Tag>().OrderBy(m => m.Name).ToList();
-            for (int i = 0; i < tags.Count(); i++)
-            {
-                for (int j = 0; j < tags.Count() - 1; j++)
-                {
-                    if (tags.ElementAt(i).Name == tags.ElementAt(j).Name)
-                    {
-                        tags.Remove(tags.ElementAt(j));
-                    }
-                }
-            }
-            return tags;
         }
     }
 }

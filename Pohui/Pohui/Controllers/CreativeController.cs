@@ -11,10 +11,17 @@ namespace Pohui.Controllers
     [Culture]
     public class CreativeController : Controller
     {
-        private readonly Repository<Tag> tagRepository = new TagRepository();
-        private readonly Repository<Creative> creativeRepository = new CreativeRepository();
-        private readonly Repository<Chapter> chapterRepository = new ChapterRepository();
-        private readonly Repository<User> userRepository = new UserRepository();
+        private readonly ITag tagRepository;
+        private readonly ICreative creativeRepository;
+        private readonly IChapter chapterRepository;
+
+        public CreativeController(ITag tag, ICreative creative, IChapter chapter)
+        {
+            this.tagRepository = tag;
+            this.creativeRepository = creative;
+            this.chapterRepository = chapter;
+
+        }
 
         public ActionResult Index()
         {
@@ -39,10 +46,10 @@ namespace Pohui.Controllers
                 Tags = uploadedCreative.Tags.GetTagsFromText(),
                 User = User.Identity.Name
             };
-            creativeRepository.Add(newCreative);
+            creativeRepository.Create(newCreative);
             creativeRepository.Save();
-            foreach (var tag in newCreative.Tags)
-                tagRepository.Add(tag);
+            foreach(var tag in newCreative.Tags)
+                tagRepository.Create(tag);
             tagRepository.Save();
             return RedirectToAction("Index", "Home");
         }
@@ -56,8 +63,7 @@ namespace Pohui.Controllers
         [Authorize]
         public ActionResult EditCreative(int id)
         {
-            var creative = creativeRepository.Find(id);
-            return View(creative);
+            return View();
         }
 
         [Authorize]
@@ -71,23 +77,9 @@ namespace Pohui.Controllers
         [HttpPost]
         public ActionResult UploadChapter(Chapter newChapter)
         {
-            chapterRepository.Add(newChapter);
+            chapterRepository.Create(newChapter);
             chapterRepository.Save();
             return RedirectToAction("ChapterEdit", "Creative");
         }
-
-        public ActionResult TagCloud()
-        {
-            var tags = tagRepository.GetAll().ToList();
-            return PartialView(tags);
-        }
-
-        public ActionResult UserCreatives(int id)
-        {
-            string username = userRepository.Find(id).Login;
-            var creatives = creativeRepository.FindAllBy(m => m.User == username).ToList();
-            return PartialView(creatives);
-        }
-
     }
 }
