@@ -5,12 +5,6 @@
     ViewBag.Title = "ChaptersEdit";
 }
 <head>
-  <meta charset="utf-8" />
-  <title>jQuery UI Draggable + Sortable</title>
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="/Scripts/mdd_styles.css" />
-	<script type="text/javascript" src="/Scripts/MarkdownDeepLib.min.js"></script>
 	<script type="text/javascript">
 	    $(function () {
 	        $("textarea.mdd_editor").MarkdownDeep({
@@ -25,15 +19,10 @@
           $("#sortable").sortable({
               revert: true
           });
-          var i = 3;
           $("#draggable").draggable({
               connectToSortable: "#sortable",
-              helper: "clone", 
-              revert: "invalid",
-              stop: function (event, ui) {
-                  $('#draggable').text('Глава ' + i);
-                  i++;
-              }
+              helper: "clone",
+              revert: "invalid"
           });
           $("ul, li").disableSelection();
       });
@@ -41,18 +30,14 @@
 </head>
 <body>
  
-<ul id="chapterfactory">
+<ul>
   <li id="draggable" class="btn btn-default">Глава 2</li>
 </ul>
  
 <ul id="sortable">
   <li class="btn btn-default">Глава 1</li>
 </ul>
- 
-    
-   
-    @Html.Partial("_MarkDownEditor");
- 
+    @Html.Partial("_MarkDownEditor"); 
 </body>
 
 

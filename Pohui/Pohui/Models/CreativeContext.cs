@@ -14,7 +14,7 @@ namespace Pohui.Models
         {
         }
         public DbSet<Like> Likes { get; set; }
-        public DbSet<User> UserProfiles { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Creative> Creatives { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Chapter> Chapters { get; set; }

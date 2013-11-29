@@ -7,20 +7,15 @@
     <title>@ViewBag.Title — приложение ASP.NET MVC</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-
     @if (Request.Cookies["Theme"] == null)
     { 
         <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
-
     }
     else
     {
         if (Request.Cookies["Theme"].Value == "black")
         {
-
         <link href="~/Content/themes/Black/bootstrap.css" rel="stylesheet" />
-
-
         }
         else
         {
@@ -30,8 +25,11 @@
     <script type="text/javascript" src="~/Scripts/jquery-2.0.3.js"></script>
     <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/Scripts/mdd_styles.css" />
     <script src="~/Scripts/jquery-2.0.3.js"></script>
     <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript" src="/Scripts/MarkdownDeepLib.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script src="~/Scripts/raphael.js"></script>
     <script src="~/Scripts/g.raphael.js"></script>
     <script src="~/Scripts/g.line.js"></script>
@@ -56,14 +54,16 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="\" class="btn">@MyRes.Home</a>
-
                         </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a href="\Account\Administration" class="btn">Admin</a>
+                            </li>
+                        }
                         <li>
-
                             @Html.ActionLink(@MyRes.AddCreative, "UploadCreative", "Creative")
                         </li>
-
-
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @Html.Partial("_LoginPartial")
@@ -75,8 +75,6 @@
     </header>
     <div id="container" style="margin-top: 65px">
         <div class="row">
-            <div class="col-lg-2" style="height: 100%" id="Tag">
-            </div>
             <div class="col-lg-10" id="Body">
                 @RenderSection("featured", required: false)
                 @RenderBody()
@@ -113,7 +111,6 @@
         </div>
 
     </footer>
-
     @RenderSection("scripts", required: false)
 </body>
 </html>

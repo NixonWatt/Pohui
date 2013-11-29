@@ -8,7 +8,6 @@ namespace Pohui.Models
     public interface IUser : IRepository<User>
     {
         void SetAdminRole(int id);
-        bool isAdmin(int id);
         void DropPassword(int id);
     }
 }

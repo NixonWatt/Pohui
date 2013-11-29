@@ -1,0 +1,5 @@
+﻿@model ICollection<Pohui.Models.Creative>
+@foreach(var creative in Model)
+{
+    <a class="btn btn-danger" href="/Creative/EditCreative?id=@creative.Id">@creative.Name</a>
+}
