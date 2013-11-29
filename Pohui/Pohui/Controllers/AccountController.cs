@@ -18,9 +18,15 @@ namespace Pohui.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
-        private readonly UserRepository repository = new UserRepository();
+        private readonly IUser repository;
         //
         // GET: /Account/Login
+
+
+        public AccountController(IUser user)
+        {
+            this.repository = user;
+        }
 
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)

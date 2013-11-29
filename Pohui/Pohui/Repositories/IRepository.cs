@@ -13,7 +13,7 @@ namespace Pohui.Models
 {
     public interface IRepository<T> : IDisposable where T : class
     {
-        void Add(T entity);
+        void Create(T entity);
         IQueryable<T> GetAll();
         IQueryable<T> FindAllBy(Expression<Func<T, bool>> predicate);
         T Find(int id);

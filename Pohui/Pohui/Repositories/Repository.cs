@@ -8,6 +8,10 @@ using System.Text;
 using System.Web;
 using System.Web.Security;
 using WebMatrix.WebData;
+using System.Data;
+using System.Data.Metadata.Edm;
+using System.Data.Objects;
+using System.Data.Objects.DataClasses;
 
 namespace Pohui.Models
 {
@@ -34,7 +38,7 @@ namespace Pohui.Models
             return Context.Set<T>().Where(predicate).FirstOrDefault();
         }
 
-        public virtual void Add(T entity)
+        public virtual void Create(T entity)
         {
             Context.Set<T>().Add(entity);
         }
@@ -70,55 +74,6 @@ namespace Pohui.Models
             if (Context != null)
                 Context.Dispose();
         }
-    }
-
-    public class UserRepository : Repository<User>
-    {
-        public void SetAdminRole(int id)
-        {
-            var user = Find(id);
-            if (isAdmin(id))
-            {
-                Roles.RemoveUserFromRole(user.Login, "Admin");
-            }
-            else
-            {
-                Roles.AddUserToRole(user.Login, "Admin");
-            }
-        }
-
-        public bool isAdmin(int id)
-        {
-            var user = Find(id);
-            if (Roles.IsUserInRole(user.Login, "Admin"))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void DropPassword(int id)
-        {
-            var user = Find(id);
-            var token = WebSecurity.GeneratePasswordResetToken(user.Login);
-            WebSecurity.ResetPassword(token, "droppedpassword");
-        }
-    }
-
-    public class CreativeRepository : Repository<Creative>
-    {
-    }
-    
-
-    public class ChapterRepository : Repository<Chapter>
-    {
-    }
-
-    public class TagRepository : Repository<Tag>
-    {
     }
 }
 
