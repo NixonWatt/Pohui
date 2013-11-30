@@ -67,7 +67,9 @@ namespace Pohui.Controllers
                 Position = 1
             };
             chapterRepository.Create(newChapter);
-            return RedirectToAction("EditCreative\\" + newCreative.Id);
+            newCreative = creativeRepository.FindFirstBy(n => n.Name == newCreative.Name && n.User == newCreative.User);
+            var raki = "EditCreative"+"/" + newCreative.Id.ToString();
+            return RedirectToAction(raki);
         }
         [Authorize]
         public ActionResult ChaptersEdit(int id)
@@ -79,7 +81,7 @@ namespace Pohui.Controllers
         [Authorize]
         public ActionResult EditCreative(int id)
         {
-            return View();
+            return View(creativeRepository.Find(id));
         }
 
         [Authorize]

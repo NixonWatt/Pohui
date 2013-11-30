@@ -36,11 +36,11 @@
     <script src="~/Scripts/g.bar.js"></script>
     <script src="~/Scripts/g.dot.js"></script>
     <script src="~/Scripts/g.pie.js"></script>
-    <script type="text/javascript">
+   @* <script type="text/javascript">
         $(document).ready(function () {
             $('.dropdown-toggle').dropdown();
         });
-    </script>
+    </script>*@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -55,12 +55,12 @@
                         <li>
                             <a href="\" class="btn">@MyRes.Home</a>
                         </li>
-                        @if (User.IsInRole("Admin"))
+                       @* @if (User.IsInRole("Admin"))
                         {
                             <li>
                                 <a href="\Account\Administration" class="btn">Admin</a>
                             </li>
-                        }
+                        }*@
                         <li>
                             @Html.ActionLink(@MyRes.AddCreative, "UploadCreative", "Creative")
                         </li>

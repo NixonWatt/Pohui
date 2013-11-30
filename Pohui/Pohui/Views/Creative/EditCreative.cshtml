@@ -4,4 +4,42 @@
 }
 
 <h2>Edit @Model.Name</h2>
+<head>
+	<script type="text/javascript">
+	    $(function () {
+	        $("textarea.mdd_editor").MarkdownDeep({
+	            help_location: "/Scripts/mdd_help.htm",
+	            ExtraMode: true
+	        });
+	    })
+	</script>
+  
+  <script>
+      $(function () {
+          $("#sortable").sortable({
+              revert: true
+          });
+          var i = 3;
+          $("#draggable").draggable({
+              connectToSortable: "#sortable",
+              helper: "clone", 
+              revert: "invalid",
+              stop: function (event, ui) {
+                  $('#draggable').text('Глава ' + i);
+                  i++;
+              }
+          });
+          $("ul, li").disableSelection();
+      });
+  </script>
+</head>
+<body>
+ 
+<ul id="chapterfactory">
+  <li id="draggable" class="btn btn-default">Глава 2</li>
+</ul>
+ 
+<ul id="sortable">
+  <li class="btn btn-default">Глава 1</li>
+</ul> 
 
