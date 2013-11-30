@@ -14,18 +14,21 @@ namespace Pohui.Controllers
         private readonly ITag tagRepository;
         private readonly ICreative creativeRepository;
         private readonly IChapter chapterRepository;
+        private readonly IUser userRepository;
+        private readonly ILike likeRepository;
 
         public CreativeController()
         {
 
         }
 
-        public CreativeController(ITag tag, ICreative creative, IChapter chapter)
+        public CreativeController(ITag tag, ICreative creative, IChapter chapter, IUser user, ILike like)
         {
             this.tagRepository = tag;
             this.creativeRepository = creative;
             this.chapterRepository = chapter;
-
+            this.userRepository = user;
+            this.likeRepository = like;
         }
 
         public ActionResult Index()
@@ -56,7 +59,15 @@ namespace Pohui.Controllers
             foreach(var tag in newCreative.Tags)
                 tagRepository.Create(tag);
             tagRepository.Save();
-            return RedirectToAction("Index", "Home");
+            Chapter newChapter = new Chapter
+            {
+                Name = "Глава 1",
+                Content = "",
+                CreativeId = newCreative.Id,
+                Position = 1
+            };
+            chapterRepository.Create(newChapter);
+            return RedirectToAction("EditCreative\\" + newCreative.Id);
         }
         [Authorize]
         public ActionResult ChaptersEdit(int id)
@@ -89,7 +100,19 @@ namespace Pohui.Controllers
 
         public ActionResult AddLike(int id)
         {
-            return PartialView();
+            Like newLike = new Like
+            {
+                Users = userRepository.FindFirstBy(m => m.Login == User.Identity.Name),
+                UserID = userRepository.FindFirstBy(m => m.Login == User.Identity.Name).UserId,
+                Creatives = creativeRepository.Find(id),
+                CreativeID = id
+            };
+            likeRepository.Create(newLike);
+            likeRepository.Save();
+            creativeRepository.Find(id).Votes = likeRepository.FindAllBy(m => m.CreativeID == id).Count();
+            creativeRepository.EditVotes(creativeRepository.Find(id));
+            creativeRepository.Save();
+            return PartialView(creativeRepository.Find(id));
         }
     }
 }

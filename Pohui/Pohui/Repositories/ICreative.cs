@@ -7,5 +7,6 @@ namespace Pohui.Models
 {
     public interface ICreative : IRepository<Creative>
     {
+        void EditVotes(Creative entity);
     }
 }

@@ -23,53 +23,53 @@ namespace Pohui.Models
             Context = new PohuiContext();
         }
 
-        public virtual IQueryable<T> GetAll()
+        IQueryable<T> IRepository<T>.GetAll()
         {
             return Context.Set<T>();
         }
 
-        public virtual IQueryable<T> FindAllBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        IQueryable<T> IRepository<T>.FindAllBy(Expression<Func<T, bool>> predicate)
         {
             return Context.Set<T>().Where(predicate);
         }
 
-        public virtual T FindFirstBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        T IRepository<T>.FindFirstBy(Expression<Func<T, bool>> predicate)
         {
             return Context.Set<T>().Where(predicate).FirstOrDefault();
         }
 
-        public virtual void Create(T entity)
+        void IRepository<T>.Create(T entity)
         {
             Context.Set<T>().Add(entity);
         }
 
-        public virtual void Delete(T entity)
+        void IRepository<T>.Delete(T entity)
         {
             Context.Set<T>().Remove(entity);
         }
 
-        public virtual void Delete(IQueryable<T> entities)
+        void IRepository<T>.Delete(IQueryable<T> entities)
         {
             foreach (var entity in entities.ToList())
                 Context.Set<T>().Remove(entity);
         }
 
-        public virtual int Save()
+        int IRepository<T>.Save()
         {
             return Context.SaveChanges();
         }
 
-        public virtual T Find(int id)
+        T IRepository<T>.Find(int id)
         {
             return Context.Set<T>().Find(id);
         }
 
-        public virtual int Count()
+        int IRepository<T>.Count()
         {
             return Context.Set<T>().Count();
         }
 
-        public void Dispose()
+        void IDisposable.Dispose()
         {
             if (Context != null)
                 Context.Dispose();

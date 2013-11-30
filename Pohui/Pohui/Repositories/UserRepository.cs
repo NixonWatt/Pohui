@@ -16,9 +16,10 @@ namespace Pohui.Models
 {
         public class UserRepository : Repository<User>, IUser
         {
+            public readonly DbContext Context = new PohuiContext();
             void IUser.SetAdminRole(int id)
             {
-                var user = Find(id);
+                var user = Context.Set<User>().Find(id);
                 if (isAdmin(id))
                 {
                     Roles.RemoveUserFromRole(user.Login, "Admin");
@@ -31,7 +32,7 @@ namespace Pohui.Models
 
             private bool isAdmin(int id)
             {
-                var user = Find(id);
+                var user = Context.Set<User>().Find(id);
                 if (Roles.IsUserInRole(user.Login, "Admin"))
                 {
                     return true;
@@ -44,7 +45,7 @@ namespace Pohui.Models
 
             void IUser.DropPassword(int id)
             {
-                var user = Find(id);
+                var user = Context.Set<User>().Find(id);
                 var token = WebSecurity.GeneratePasswordResetToken(user.Login);
                 WebSecurity.ResetPassword(token, "droppedpassword");
             }

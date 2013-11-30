@@ -16,5 +16,11 @@ namespace Pohui.Models
 {
     public class CreativeRepository : Repository<Creative>, ICreative
     {
+        public readonly DbContext Context = new PohuiContext();
+        void ICreative.EditVotes(Creative entity)
+        {
+            Context.Set<Creative>().Attach(entity);
+            Context.Entry(entity).Property(m => m.Votes).IsModified = true;
+        }
     }
 }

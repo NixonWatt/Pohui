@@ -326,3 +326,9 @@ C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.We
 C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.Web.Common.xml
 C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.pdb
 C:\Users\t.lebedev\Documents\GitHub\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.xml
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.Web.Common.dll
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.dll
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.Web.Common.pdb
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.Web.Common.xml
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.pdb
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.xml
