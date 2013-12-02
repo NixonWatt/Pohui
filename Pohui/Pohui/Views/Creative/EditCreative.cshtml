@@ -5,6 +5,7 @@
 
 <h2>Edit @Model.Name</h2>
 <head>
+    <title></title>
 	<script type="text/javascript">
 	    $(function () {
 	        $("textarea.mdd_editor").MarkdownDeep({
@@ -16,30 +17,37 @@
   
   <script>
       $(function () {
+          var i = 2;
           $("#sortable").sortable({
-              revert: true
-          });
-          var i = 3;
-          $("#draggable").draggable({
-              connectToSortable: "#sortable",
-              helper: "clone", 
-              revert: "invalid",
+              revert: true,
               stop: function (event, ui) {
-                  $('#draggable').text('Глава ' + i);
-                  i++;
+                  var sortedIDs = $("#sortable").sortable("toArray");
+
+
+                  $('#test').text(sortedIDs);
               }
           });
+          $('#AddChapter').on('click', function () {
+              $('#sortable').append('<li class="btn btn-default" id="' + i + '">Глава ' + i + '</li>');
+              i++;                           
+          });
+         
+          
+         
           $("ul, li").disableSelection();
       });
   </script>
 </head>
 <body>
  
-<ul id="chapterfactory">
-  <li id="draggable" class="btn btn-default">Глава 2</li>
-</ul>
- 
-<ul id="sortable">
-  <li class="btn btn-default">Глава 1</li>
-</ul> 
 
+     <ol><li id="AddChapter" class="btn btn-default">+</li></ol>
+<ol id="sortable">
+     
+  <li class="btn btn-default" id="1">Глава 1</li>
+</ol>
+
+     
+    <div id="test"></div>
+
+    </body>
