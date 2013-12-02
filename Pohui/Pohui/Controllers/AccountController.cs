@@ -8,6 +8,7 @@ using System.Web.Security;
 using WebMatrix.WebData;
 using Pohui.Models;
 using Pohui.Filters;
+using Pohui.Lucene;
 using System.Net.Mail;
 using System.Net;
 
@@ -180,6 +181,7 @@ namespace Pohui.Controllers
         public ActionResult Administration()
         {
             var users = repository.GetAll();
+            LuceneUserSearch.AddUpdateLuceneIndex(users);
             return View(users.ToList());
         }
 

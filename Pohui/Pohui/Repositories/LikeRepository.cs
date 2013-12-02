@@ -16,17 +16,5 @@ namespace Pohui.Models
 {
     public class LikeRepository : Repository<Like>, ILike
     {
-        public readonly DbContext Context = new PohuiContext();
-        void IRepository<Like>.Create(Like entity)
-        {
-            if (Context.Set<Like>().Where(m => m.UserID == entity.UserID && m.CreativeID == entity.CreativeID).FirstOrDefault() == null)
-            {
-                Context.Set<Like>().Add(entity);
-            }
-            else
-            {
-                Context.Set<Like>().Remove(entity);
-            }
-        }
     }
 }

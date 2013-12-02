@@ -332,3 +332,6 @@ C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.W
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.Web.Common.xml
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.pdb
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Ninject.xml
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Lucene.Net.dll
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Lucene.Net.pdb
+C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui.Tests\bin\Debug\Lucene.Net.xml

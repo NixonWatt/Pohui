@@ -13,12 +13,10 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
         $.ajax({
             url: '/Creative/TagCloud',
             success: function (response) {
                 $("#Tag").html(response);
             }
         });
-    });
 </script>

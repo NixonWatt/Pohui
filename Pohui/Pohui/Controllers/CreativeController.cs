@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Pohui.Models;
 using Pohui.Filters;
+using Pohui.Lucene;
 
 namespace Pohui.Controllers
 {
@@ -56,8 +57,12 @@ namespace Pohui.Controllers
             };
             creativeRepository.Create(newCreative);
             creativeRepository.Save();
-            foreach(var tag in newCreative.Tags)
+            LuceneCreativeSearch.AddUpdateLuceneIndex(newCreative);
+            foreach (var tag in newCreative.Tags)
+            {
                 tagRepository.Create(tag);
+                LuceneTagSearch.AddUpdateLuceneIndex(tag);
+            }
             tagRepository.Save();
             Chapter newChapter = new Chapter
             {
@@ -67,6 +72,8 @@ namespace Pohui.Controllers
                 Position = 1
             };
             chapterRepository.Create(newChapter);
+            chapterRepository.Save();
+            LuceneChapterSearch.AddUpdateLuceneIndex(newChapter);
             newCreative = creativeRepository.FindFirstBy(n => n.Name == newCreative.Name && n.User == newCreative.User);
             var raki = "EditCreative"+"/" + newCreative.Id.ToString();
             return RedirectToAction(raki);
@@ -97,6 +104,7 @@ namespace Pohui.Controllers
         {
             chapterRepository.Create(newChapter);
             chapterRepository.Save();
+            LuceneChapterSearch.AddUpdateLuceneIndex(newChapter);
             return RedirectToAction("ChapterEdit", "Creative");
         }
 
@@ -104,16 +112,23 @@ namespace Pohui.Controllers
         {
             Like newLike = new Like
             {
-                Users = userRepository.FindFirstBy(m => m.Login == User.Identity.Name),
                 UserID = userRepository.FindFirstBy(m => m.Login == User.Identity.Name).UserId,
-                Creatives = creativeRepository.Find(id),
                 CreativeID = id
             };
-            likeRepository.Create(newLike);
+            if (likeRepository.FindFirstBy(m => (m.UserID == newLike.UserID) && (m.CreativeID == id)) == null)
+            {
+                likeRepository.Create(newLike);
+            }
+            else
+            {
+                var like = likeRepository.FindFirstBy(m => (m.UserID == newLike.UserID) && (m.CreativeID == id));
+                likeRepository.Delete(like);
+            }
             likeRepository.Save();
             creativeRepository.Find(id).Votes = likeRepository.FindAllBy(m => m.CreativeID == id).Count();
             creativeRepository.EditVotes(creativeRepository.Find(id));
             creativeRepository.Save();
+            LuceneCreativeSearch.AddUpdateLuceneIndex(creativeRepository.Find(id));
             return PartialView(creativeRepository.Find(id));
         }
     }
