@@ -12,6 +12,7 @@ using System.Data;
 using System.Data.Metadata.Edm;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
+using Pohui.Lucene;
 
 namespace Pohui.Models
 {
