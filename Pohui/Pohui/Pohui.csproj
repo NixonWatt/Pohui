@@ -271,6 +271,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fotorama%402x.png" />
+    <Content Include="Content\fotorama.css" />
+    <Content Include="Content\fotorama.png" />
     <Content Include="Content\MarkdownDeep.css" />
     <Content Include="Content\MarkdownDeep_ToptenLogo.png" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
@@ -345,8 +348,10 @@
     <Content Include="Content\themes\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Images\book.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\fotorama.js" />
     <Content Include="Scripts\g.bar-min.js" />
     <Content Include="Scripts\g.bar.js" />
     <Content Include="Scripts\g.dot-min.js" />
@@ -431,6 +436,7 @@
     <Content Include="Views\Creative\UserCreatives.cshtml" />
     <Content Include="Views\Creative\EditCreative.cshtml" />
     <Content Include="Views\Creative\AddLike.cshtml" />
+    <Content Include="Views\Shared\_Fotorama.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
