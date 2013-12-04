@@ -131,5 +131,26 @@ namespace Pohui.Controllers
             LuceneCreativeSearch.AddUpdateLuceneIndex(creativeRepository.Find(id));
             return PartialView(creativeRepository.Find(id));
         }
+
+        public ActionResult ViewAllChapters(int id)
+        {
+            return PartialView(chapterRepository.FindAllBy(m => m.CreativeId == id).OrderBy(m => m.Position));
+        }
+
+        public EmptyResult AddEmptyChapter(int id)
+        {
+            Chapter newChapter = new Chapter
+            {
+                Name = "Chapter",
+                Content = "",
+                Position = chapterRepository.FindAllBy(m => m.CreativeId == id).Count() + 1,
+                CreativeId = id
+            };
+            chapterRepository.Create(newChapter);
+            LuceneChapterSearch.AddUpdateLuceneIndex(newChapter);
+            chapterRepository.Save();
+            return null;
+        }
+
     }
 }

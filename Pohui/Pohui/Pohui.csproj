@@ -431,6 +431,7 @@
     <Content Include="Views\Creative\UserCreatives.cshtml" />
     <Content Include="Views\Creative\EditCreative.cshtml" />
     <Content Include="Views\Creative\AddLike.cshtml" />
+    <Content Include="Views\Creative\ViewAllChapters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
