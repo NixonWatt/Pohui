@@ -1,0 +1,5 @@
+﻿@model IQueryable<Pohui.Models.Chapter>
+    @foreach (var chapter in Model)
+    {
+        <li id=@chapter.Position class="btn btn-default">@chapter.Name</li>
+    }

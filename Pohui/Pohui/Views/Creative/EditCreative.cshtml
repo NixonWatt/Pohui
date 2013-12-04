@@ -2,52 +2,48 @@
 @{
     ViewBag.Title = "EditCreative";
 }
-
-<h2>Edit @Model.Name</h2>
 <head>
-    <title></title>
-	<script type="text/javascript">
-	    $(function () {
-	        $("textarea.mdd_editor").MarkdownDeep({
-	            help_location: "/Scripts/mdd_help.htm",
-	            ExtraMode: true
-	        });
-	    })
-	</script>
-  
-  <script>
-      $(function () {
-          var i = 2;
-          $("#sortable").sortable({
-              revert: true,
-              stop: function (event, ui) {
-                  var sortedIDs = $("#sortable").sortable("toArray");
-
-
-                  $('#test').text(sortedIDs);
-              }
-          });
-          $('#AddChapter').on('click', function () {
-              $('#sortable').append('<li class="btn btn-default" id="' + i + '">Глава ' + i + '</li>');
-              i++;                           
-          });
-         
-          
-         
-          $("ul, li").disableSelection();
-      });
-  </script>
-</head>
-<body>
- 
-
-     <ol><li id="AddChapter" class="btn btn-default">+</li></ol>
-<ol id="sortable">
-     
-  <li class="btn btn-default" id="1">Глава 1</li>
+<script>
+    $.ajax({
+        url: '/Creative/ViewAllChapters?id=@Model.Id',
+        success: function (response) {
+            $("#sortable").html(response);
+        }
+    });
+    $(function () {
+        var i = 0;
+        $("#sortable").sortable({
+            revert: true,
+            stop: function (event, ui) {
+                var sortedIDs = $("#sortable").sortable("toArray");
+                i = sortedIDs.length + 1;
+            }
+        });
+        $("ul, li").disableSelection();
+    });
+    $(function () {
+        $("textarea.mdd_editor").MarkdownDeep({
+            help_location: "/Scripts/mdd_help.htm",
+            ExtraMode: true
+        });
+    })
+    $('#AddChapter').on('click', function () {
+        $('#sortable').append('<li class="btn btn-default" id="' + i + '">Глава ' + i + '</li>');
+        $.ajax({
+            url: '/Creative/AddEmptyChapter?id=@Model.Id'
+        });
+        });
+</script>
+    </head>
+<h2>Edit @Model.Name</h2>
+<ol>
+    <li id="AddChapter" class="btn btn-default">+</li>
 </ol>
+<ul id="sortable">
 
-     
-    <div id="test"></div>
+</ul>
+<script>
 
-    </body>
+</script>
+
+<div id="editor"></div>
