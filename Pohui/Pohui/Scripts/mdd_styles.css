@@ -183,7 +183,6 @@ div.mdd_links a:hover
 div.mdd_editor_wrap
 {
     padding-right: 8px;
-    width:800px;
 }
 textarea.mdd_editor
 {
@@ -192,10 +191,10 @@ textarea.mdd_editor
 	margin:0;padding: 3px;
 }
 
-/*div.mdd_resizer_wrap
+div.mdd_resizer_wrap
 {
 	width:100%;
-}*/
+}
 div.mdd_resizer
 {
 	background:#f8f8f8; 

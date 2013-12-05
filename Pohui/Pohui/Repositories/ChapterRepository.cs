@@ -23,5 +23,10 @@ namespace Pohui.Models
             Context.Set<Chapter>().Attach(chapter);
             Context.Entry(chapter).Property(m => m.Position).IsModified = true;
         }
+        void IChapter.EditContent(Chapter chapter)
+        {   
+            Context.Set<Chapter>().Attach(chapter);
+            Context.Entry(chapter).Property(m => m.Content).IsModified = true;
+        }
     }
 }

@@ -79,7 +79,7 @@ namespace Pohui.Controllers
             return RedirectToAction(raki);
         }
         [Authorize]
-        public ActionResult ChaptersEdit(int id)
+        public ActionResult CheptersEditor(int id)
         {
             var chapter = chapterRepository.Find(id);
             return PartialView(chapter);
@@ -173,5 +173,15 @@ namespace Pohui.Controllers
         {
             return PartialView(chapterRepository.Find(id));
         }
-    }
+        public ActionResult SaveChapter(int id, string content)
+        {
+            var chapter = chapterRepository.FindFirstBy(m => m.Id== id);
+            chapter.Content = content;
+            chapterRepository.EditContent(chapter);
+                chapterRepository.Save();
+                LuceneChapterSearch.AddUpdateLuceneIndex(chapter);
+            
+            return null;
+        } 
+        }
 }

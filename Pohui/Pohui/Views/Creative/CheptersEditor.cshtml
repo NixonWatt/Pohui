@@ -1,0 +1,30 @@
+﻿@model Pohui.Models.Chapter
+	<link rel="stylesheet" type="text/css" href="/Scripts/mdd_styles.css" />
+	<script type="text/javascript" src="/Scripts/jQuery-1.4.1.min.js"></script>
+	<script type="text/javascript" src="/Scripts/MarkdownDeepLib.min.js"></script>
+	<script type="text/javascript">
+	    $(function () {
+	        $("textarea.mdd_editor").MarkdownDeep({
+	            help_location: "/Scripts/mdd_help.htm",
+	            ExtraMode: true
+	        });
+	    })
+
+	</script>
+
+<div class="mdd_toolbar"></div>
+		<textarea class="mdd_editor" id="fuck" rows="18">@Model.Content</textarea> 
+
+		<div class="mdd_preview col-lg-6"></div>
+<script>
+    $('.mdd_editor').keydown(function (eventObject) {
+        var content = $('#fuck').val();
+  
+        if (eventObject.which == 190 || eventObject.which == 32) {
+              $.ajax({
+                  url: '/Creative/SaveChapter?id=@Model.Id&content='+content+''
+            });
+        }
+        });
+   
+</script>
