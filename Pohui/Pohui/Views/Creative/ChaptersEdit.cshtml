@@ -1,12 +1,8 @@
 ﻿@using MyRes = Resources.Resource
 @model Pohui.Models.Chapter
-
-@{
-    ViewBag.Title = "ChaptersEdit";
-}
-  <body>
-    @Html.Partial("_MarkDownEditor");
- 
-</body>
+<div class="mdd_toolbar"></div>
+		<textarea class="mdd_editor" rows="10">@Model.Content</textarea> 
+		<div class="mdd_resizer col-lg-6"></div>
+		<div class="mdd_preview col-lg-6"></div>
 
 

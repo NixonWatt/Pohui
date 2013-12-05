@@ -16,5 +16,12 @@ namespace Pohui.Models
 {
     public class ChapterRepository : Repository<Chapter>, IChapter
     {
+        public readonly DbContext Context = new PohuiContext();
+        void IChapter.EditPosition(Chapter chapter, int id)
+        {
+            chapter.Position = id;
+            Context.Set<Chapter>().Attach(chapter);
+            Context.Entry(chapter).Property(m => m.Position).IsModified = true;
+        }
     }
 }

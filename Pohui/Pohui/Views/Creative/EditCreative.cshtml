@@ -4,19 +4,38 @@
 }
 <head>
 <script>
+ 
+    
+</script>
+    </head>
+<h2>Edit @Model.Name</h2>
+<ol>
+    <li id="AddChapter" class="btn btn-default">+</li>
+</ol>
+<ul id="sortable">
+    <li class="btn btn-default">Глава 2</li>
+</ul>
+<script>
     $.ajax({
         url: '/Creative/ViewAllChapters?id=@Model.Id',
         success: function (response) {
-            $("#sortable").html(response);
+            $("#sortable").html(response)
         }
+
     });
+    
+    var i = 1;
+    
     $(function () {
-        var i = 0;
         $("#sortable").sortable({
             revert: true,
             stop: function (event, ui) {
                 var sortedIDs = $("#sortable").sortable("toArray");
-                i = sortedIDs.length + 1;
+                for (var i = 0; i < sortedIDs.length; i++) {
+                        $.ajax({
+                            url: '/Creative/EditPosition?creativeId=@Model.Id&oldPos=' + sortedIDs[i] + '&newPos=' + i
+                        });
+                    }
             }
         });
         $("ul, li").disableSelection();
@@ -28,22 +47,15 @@
         });
     })
     $('#AddChapter').on('click', function () {
-        $('#sortable').append('<li class="btn btn-default" id="' + i + '">Глава ' + i + '</li>');
+        var sortedIDs = $("#sortable").sortable("toArray");
+        i = sortedIDs.length + 1;
+        $('#sortable').append('<li class="btn btn-default" id="'+i+'">Глава '+i+'</li>');
         $.ajax({
             url: '/Creative/AddEmptyChapter?id=@Model.Id'
         });
-        });
-</script>
-    </head>
-<h2>Edit @Model.Name</h2>
-<ol>
-    <li id="AddChapter" class="btn btn-default">+</li>
-</ol>
-<ul id="sortable">
-
-</ul>
-<script>
-
+            
+        
+    });
 </script>
 
-<div id="editor"></div>
+<div id="content" class="container"></div>

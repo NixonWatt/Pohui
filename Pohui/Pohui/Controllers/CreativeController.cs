@@ -151,6 +151,27 @@ namespace Pohui.Controllers
             chapterRepository.Save();
             return null;
         }
+        public EmptyResult EditPosition(int creativeId, int oldPos, int newPos)
+        {
+            var chapter = chapterRepository.FindFirstBy(m => m.CreativeId == creativeId && m.Position == oldPos);
+            if (chapter != null)
+            {
+                chapterRepository.EditPosition(chapter, newPos);
+                chapterRepository.Save();
+                LuceneChapterSearch.AddUpdateLuceneIndex(chapter);
+            }
+            return null;
+        }
 
+        public ActionResult ViewCreative(int id)
+        {
+            var creative = creativeRepository.Find(id);
+            return View(creative);
+        }
+
+        public ActionResult ViewChapter(int id)
+        {
+            return PartialView(chapterRepository.Find(id));
+        }
     }
 }

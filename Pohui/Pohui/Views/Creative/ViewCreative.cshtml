@@ -1,0 +1,17 @@
+﻿@model Pohui.Models.Creative
+
+@{
+    ViewBag.Title = "ViewCreative";
+}
+
+<h2>@Model.Name</h2>
+<script>
+    $.ajax({
+        url: '/Creative/ViewAllChapters?id=@Model.Id',
+        success: function (response) {
+            $("#chapters").html(response)
+        }
+    });
+</script>
+<ol id="chapters"></ol>
+<div id="content"></div>

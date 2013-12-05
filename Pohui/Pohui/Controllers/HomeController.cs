@@ -4,12 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Pohui.Filters;
+using Pohui.Models;
 
 namespace Pohui.Controllers
 {
     [Culture]
     public class HomeController : Controller
     {
+        private readonly ICreative creativeRepository;
+        private readonly IChapter chapterRepository;
+     public HomeController()
+        {
+
+        }
+
+        public HomeController(ITag tag, ICreative creative, IChapter chapter, IUser user, ILike like)
+        {         
+            this.creativeRepository = creative;
+            this.chapterRepository = chapter;
+        }
         public ActionResult Index()
         {
            
@@ -23,6 +36,11 @@ namespace Pohui.Controllers
             ViewBag.Message = "Your app description page.";
 
             return View();
+        }
+        public ActionResult ViewCreativeText(int CreativeId)
+        {
+             var chapter = chapterRepository.Find(CreativeId);  ;
+            return PartialView("_Fotorama"); 
         }
 
         public ActionResult Contact()

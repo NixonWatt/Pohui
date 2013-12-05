@@ -7,5 +7,6 @@ namespace Pohui.Models
 {
     public interface IChapter : IRepository<Chapter>
     {
+        void EditPosition(Chapter chapter, int id);
     }
 }

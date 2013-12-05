@@ -1,5 +1,5 @@
 ﻿@model IQueryable<Pohui.Models.Chapter>
     @foreach (var chapter in Model)
     {
-        <li id=@chapter.Position class="btn btn-default">@chapter.Name</li>
+        <a data-ajax="true" data-ajax-mode="replace" data-ajax-update="#content" href="\Creative\ChaptersEdit?id=@chapter.Id" id=@chapter.Position class="btn btn-default" >@chapter.Name</a>
     }
