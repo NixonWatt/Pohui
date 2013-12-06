@@ -32,7 +32,7 @@
             stop: function (event, ui) {
                 var sortedIDs = $("#sortable").sortable("toArray");
                 for (var i = 0; i < sortedIDs.length; i++) {
-                        $.ajax({
+                    $.ajax({
                             url: '/Creative/EditPosition?creativeId=@Model.Id&oldPos=' + sortedIDs[i] + '&newPos=' + i
                         });
                     }
@@ -52,8 +52,7 @@
         $('#sortable').append('<li class="btn btn-default" id="'+i+'">Глава '+i+'</li>');
         $.ajax({
             url: '/Creative/AddEmptyChapter?id=@Model.Id'
-        });
-            
+        });           
         
     });
 </script>

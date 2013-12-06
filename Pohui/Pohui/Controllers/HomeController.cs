@@ -43,7 +43,7 @@ namespace Pohui.Controllers
              var chapter = chapterRepository.Find(CreativeId);  ;
             return PartialView("_Fotorama"); 
         }
-
+    
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
