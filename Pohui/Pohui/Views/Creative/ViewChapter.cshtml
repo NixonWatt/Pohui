@@ -1,0 +1,24 @@
+﻿@model Pohui.Models.Chapter
+<div class="col-lg-8">
+    <div class="fotorama" data-fit="cover">
+        @if (Model.Content.Length <= 2150)
+        {
+            <div data-img="@("/Images/book.png")">
+                <div class="container col-lg-6" style="top: 10px;">
+                    @Model.Content
+                </div>
+            </div>
+        }
+        else
+        {
+            for (int i = 0; i < @Model.Content.Length % 2150; i++)
+            {
+            <div data-img="@("/Images/book.png")">
+                <div class="container col-lg-6" style="top: 10px;">
+                    @Model.Content.Substring(i, i + 2150)
+                </div>
+            </div>
+            }
+        }
+    </div>
+</div>

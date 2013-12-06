@@ -79,11 +79,22 @@ namespace Pohui.Controllers
             return RedirectToAction(raki);
         }
         [Authorize]
-        public ActionResult ChaptersEdit(int id)
+        public ActionResult CheptersEditor(int id)
         {
             var chapter = chapterRepository.Find(id);
             return PartialView(chapter);
         }
+
+        public EmptyResult SaveChapter(int id, string content)
+        {
+            var chapter = chapterRepository.FindFirstBy(m => m.Id== id);
+            chapter.Content = content;
+            chapterRepository.EditContent(chapter);
+                chapterRepository.Save();
+                LuceneChapterSearch.AddUpdateLuceneIndex(chapter);
+            
+            return null;
+        } 
 
         [Authorize]
         public ActionResult EditCreative(int id)
@@ -133,6 +144,11 @@ namespace Pohui.Controllers
         }
 
         public ActionResult ViewAllChapters(int id)
+        {
+            return PartialView(chapterRepository.FindAllBy(m => m.CreativeId == id).OrderBy(m => m.Position));
+        }
+
+        public ActionResult GetAllChapters(int id)
         {
             return PartialView(chapterRepository.FindAllBy(m => m.CreativeId == id).OrderBy(m => m.Position));
         }
