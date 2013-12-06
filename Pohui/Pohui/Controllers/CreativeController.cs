@@ -69,7 +69,7 @@ namespace Pohui.Controllers
                 Name = "Глава 1",
                 Content = "",
                 CreativeId = newCreative.Id,
-                Position = 1
+                Position = 0
             };
             chapterRepository.Create(newChapter);
             chapterRepository.Save();
@@ -172,6 +172,22 @@ namespace Pohui.Controllers
         public ActionResult ViewChapter(int id)
         {
             return PartialView(chapterRepository.Find(id));
+        }
+        public ActionResult TagCloud()
+        {
+            //var tags = tagRepository.GetAll();
+            //for (int i = 0; i < tags.Count(); i++)
+            //{
+            //    for (int j = 0; j < tags.Count() - 1; j++)
+            //    {
+            //        if (tags.ElementAt(i).Name == tags.ElementAt(j).Name)
+            //        {
+            //            tagRepository.Delete(tags.ElementAt(j));
+            //        }
+            //    }
+            //}
+            var tags = tagRepository.GetAll();
+            return PartialView(tags);
         }
     }
 }

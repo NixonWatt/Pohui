@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Pohui.Filters;
 using Pohui.Models;
+using Pohui.Lucene;
 
 namespace Pohui.Controllers
 {
@@ -87,6 +88,19 @@ namespace Pohui.Controllers
             }
             Response.Cookies.Add(cookie);
             return Redirect(returnUrl);
+        }
+
+        public ActionResult Search(string searchString)
+        {
+            SearchResult searchResult = new SearchResult
+            {
+                chapters = LuceneChapterSearch.Search(searchString),
+                creatives = LuceneCreativeSearch.Search(searchString),
+                tags = LuceneTagSearch.Search(searchString),
+                users = LuceneUserSearch.Search(searchString),
+            };
+            ViewBag.asd = searchString;
+            return View(searchResult);
         }
     }
 }

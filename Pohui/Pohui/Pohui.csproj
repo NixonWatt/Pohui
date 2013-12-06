@@ -246,6 +246,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Models\SearchResult.cs" />
     <Compile Include="Repositories\IChapter.cs" />
     <Compile Include="Repositories\ICreative.cs" />
     <Compile Include="Repositories\ILike.cs" />
@@ -438,6 +439,7 @@
     <Content Include="Views\Creative\AddLike.cshtml" />
     <Content Include="Views\Shared\_Fotorama.cshtml" />
     <Content Include="Views\Creative\ViewCreative.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,22 @@
+﻿@model Pohui.Models.SearchResult
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search Result @ViewBag.asd</h2>
+@foreach(var chapter in Model.chapters)
+{
+    <a href="\Creative\ViewCreative?id=@chapter.CreativeId" class="btn btn-default">@chapter.Name</a>
+}
+@foreach(var creative in Model.creatives)
+{
+    <a href="\Creative\ViewCreative?id=@creative.Id" class="btn btn-default">@creative.Name</a>
+}
+@foreach(var tag in Model.tags)
+{
+    @tag.Name
+}
+@foreach(var user in Model.users)
+{
+    <a href="\Creative\ProfilePage?id=@user.UserId" class="btn btn-default">@user.Login></a>
+}
