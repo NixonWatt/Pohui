@@ -1,11 +1,11 @@
-﻿@model IQueryable<Pohui.Models.Tag>
+﻿@model ICollection<Pohui.Models.Tag>
 <div class="container">
     <table>
         @foreach (var tag in Model)
         {
             <tr>
                 <td>
-                    <a data-ajax="true" data-ajax-mode="replace" data-ajax-update="#Body" href="#" class="btn btn-primary btn-sm">@tag.Name</a>
+                    <a data-ajax="true" data-ajax-mode="replace" data-ajax-update="#" href="#" class="btn btn-primary btn-sm">@tag.Name</a>
                 </td>
             </tr>
         }

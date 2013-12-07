@@ -14,11 +14,11 @@
     <a class="btn btn-warning" href="DropPassword?id=@user.UserId">@MyRes.ResetPassword</a>
         if (Roles.IsUserInRole(user.Login, "Admin"))
         {
-            <a class="btn btn-success" href="DropAdmin?id=@user.UserId">@MyRes.MakeAsUser</a>
+            <a class="btn btn-success" href="SetAdmin?id=@user.UserId">@MyRes.MakeAsUser</a>
         }
         else
         {
-            <a class="btn btn-primary" href="DropAdmin?id=@user.UserId">@MyRes.MakeAsAdmin</a>  
+            <a class="btn btn-primary" href="SetAdmin?id=@user.UserId">@MyRes.MakeAsAdmin</a>  
         }
          
     }</div>
