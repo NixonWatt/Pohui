@@ -187,7 +187,7 @@ namespace Pohui.Controllers
 
         public ActionResult ViewChapter(int id)
         {
-            return PartialView(chapterRepository.Find(id));
+            return View(chapterRepository.Find(id));
         }
         public ActionResult TagCloud()
         {
