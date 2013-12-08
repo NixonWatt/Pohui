@@ -14,7 +14,7 @@ namespace Pohui.Controllers
     {
         private readonly ICreative creativeRepository;
         private readonly IChapter chapterRepository;
-     public HomeController()
+        public HomeController()
         {
 
         }
@@ -41,7 +41,7 @@ namespace Pohui.Controllers
 
         public ActionResult ViewCreativeText(int CreativeId)
         {
-             var chapter = chapterRepository.Find(CreativeId);  ;
+            var chapter = chapterRepository.Find(CreativeId);
             return PartialView("_Fotorama"); 
         }
     

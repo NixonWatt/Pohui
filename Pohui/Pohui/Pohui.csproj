@@ -445,6 +445,7 @@
     <Content Include="Views\Creative\ViewAllChapters.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Creative\ViewCreatives.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

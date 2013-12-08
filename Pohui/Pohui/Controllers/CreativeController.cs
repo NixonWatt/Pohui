@@ -217,5 +217,10 @@ namespace Pohui.Controllers
             }
             return PartialView(tags);
         }
+
+        public ActionResult ViewCreatives()
+        {
+            return View(creativeRepository.GetAll());
+        }
     }
 }
