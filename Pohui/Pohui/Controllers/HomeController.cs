@@ -25,7 +25,7 @@ namespace Pohui.Controllers
             this.chapterRepository = chapter;
         }
 
-        [OutputCache(Duration = 120)]
+        [OutputCache(Duration = 1)]
         public ActionResult Index()
         {
           

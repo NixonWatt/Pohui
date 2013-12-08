@@ -1,13 +1,22 @@
 ﻿@model Pohui.Models.Chapter
-<div class="col-lg-8">
-    <div class="fotorama" data-fit="cover">
-        @if (Model.Content.Length <= 2150)
+<head>
+     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+            <link  href="http://fotorama.s3.amazonaws.com/4.4.8/fotorama.css" rel="stylesheet">
+            <script src="http://fotorama.s3.amazonaws.com/4.4.8/fotorama.js"></script>
+    </head>
+
+        @if (Model.Content.Length > 0)
         {
-            <div data-img="@("/Images/book.png")">
+            
+    
+  
+<div class="fotorama">
+<div data-img="@("/Images/book.png")">
                 <div class="container col-lg-6" style="top: 10px;">
                     @Model.Content
                 </div>
             </div>
+    </div>}@*
         }
         else
         {
@@ -19,6 +28,4 @@
                 </div>
             </div>
             }
-        }
-    </div>
-</div>
+        }*@

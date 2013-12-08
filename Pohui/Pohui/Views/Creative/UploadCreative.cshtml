@@ -13,14 +13,17 @@
 
     <fieldset>
         <legend></legend>
+        <div class="container">
+    <div class="well">
         <div class="editor-label">
            @MyRes.Name
         </div>
+        <div class="input-group">
         <div class="editor-field">
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
         </div>
-
+</div>
         <div class="editor-label">
            @MyRes.Description
         </div>
@@ -39,10 +42,12 @@
        <div>
         <p>
             <input type="submit" value="@MyRes.Create" />
-        </p></div>
+        </p></div><div>
+    @Html.ActionLink(@MyRes.BackToList, "Index", "Home")
+</div></div>
+</div>
+
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink(@MyRes.BackToList, "Index", "Home")
-</div>
+

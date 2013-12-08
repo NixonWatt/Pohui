@@ -2,57 +2,66 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<div class="col-lg-8">
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="col-lg-8" id="test">
+<div class="container">
+   
+        <div class="col-md-10" id="test">
 
 
-                @foreach (var creative in Model)
-                {
+            @foreach (var creative in Model)
+            {
               
-                    <div class="container">
-                        <div class="well form-inline">
-                            <div class="row-fluid user-row">
-                                <h3 style="text-align: center">@creative.Name</h3>
-                                <h5>@creative.Description</h5>
-                                <div class="@creative.Id" id="panel" style="display: none;">
-                                    <div class="col-lg-8">
-                                        <div class="fotorama" data-fit="cover">
-                                        </div>
-                                        <button class="btn-slide" id="slidedown" name="@creative.Id"><i class="glyphicon glyphicon-arrow-down"></i></button>
+                
+                    <div class="well">
+                       
+                            <h3 style="text-align: center">@creative.Name</h3>
+                            <h5>@creative.Description</h5>
+                            <div class="@creative.Id" id="panel" style="display: none;">
+                                <div class="col-8">
+                                    <div id="@creative.Id"></div>
 
-
-                                        <span class="pull-right">
-                                            <button data-ajax="true" class="btn  btn-primary btn-sm" id="like" name="@creative.Id">
-                                                Likes
-                                 
-                             <i class="glyphicon glyphicon-thumbs-up"></i>@creative.Votes</button>
-                                        </span>
+                                    <div id="content" data-fit="cover">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-              
-                }
+                            <button class="btn btn-info btn-sm" id="slidedown" name="@creative.Id"><i class="glyphicon glyphicon-arrow-down"></i></button>
 
-            </div>
+
+                            <span class="pull-right">
+                                <button  class="btn  btn-primary btn-sm" id="like" name="@creative.Id">
+                                  
+                                 
+                             <i class="glyphicon glyphicon-thumbs-up"></i><p id="likeid @creative.Id"> @creative.Votes</p></button>
+                            </span>
+
+                        </div>
+                   
+               
+      
+            }
+
         </div>
-    </div>
-</div>
-<div class="col-lg-2">
-    @Html.Partial("_Diagram")
-    <div id="Tag"></div>
-</div>
+   
+    <div class="col-md-2" >
+        @Html.Partial("_Diagram")
+        <div id="Tag"></div>
+    </div> </div>
 
 <script type="text/javascript">
     $(document).ready(function () {
 
         $('button[id="slidedown"]').click(function () {
             var creativeID = this.name;
-            $('.' + creativeID).slideToggle("slow");
-            $(this).toggleClass("active"); return false;
+            $.ajax({
+                url: '/Creative/GetAllChapters?id=' + creativeID,
+
+                success: function (response) {
+                    $('#'+creativeID).html(response);
+                }
+            });
+            $('.' + creativeID).slideToggle();
+            $(this).toggleClass("active");
+            return false;
+           
         });
 
 
@@ -64,12 +73,15 @@
     $('button[id="like"]').click(function () {
         var creativeID = this.name;
         $.ajax({
-            url: '/Creative/AddLike?id=' + creativeID + ''
+            url: '/Creative/AddLike?id=' + creativeID,
+            success: function (response) {
+                $('#likeid ' + creativeID).html(response);
+            }
+            
         });
     });
     $('button[id="dropdowntext"]').click(function () {
         var creativeID = this.name;
-        alert(creativeID);
     });
 </script>
 <script type="text/javascript">
