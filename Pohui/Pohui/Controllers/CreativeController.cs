@@ -38,6 +38,7 @@ namespace Pohui.Controllers
         }
 
         [Authorize]
+        [OutputCache(Duration = 3600)]
         public ActionResult UploadCreative()
         {
             return View();
@@ -79,6 +80,7 @@ namespace Pohui.Controllers
             return RedirectToAction(raki);
         }
         [Authorize]
+        [OutputCache()]
         public ActionResult CheptersEditor(int id)
         {
             var chapter = chapterRepository.Find(id);
@@ -97,12 +99,14 @@ namespace Pohui.Controllers
         } 
 
         [Authorize]
+        [OutputCache()]
         public ActionResult EditCreative(int id)
         {
             return View(creativeRepository.Find(id));
         }
 
         [Authorize]
+        [OutputCache()]
         public ActionResult UploadChapter(int id)
         {
             ViewBag.ID = id;
@@ -111,6 +115,7 @@ namespace Pohui.Controllers
 
         [Authorize]
         [HttpPost]
+        [OutputCache(Duration = 3600)]
         public ActionResult UploadChapter(Chapter newChapter)
         {
             chapterRepository.Create(newChapter);
@@ -143,11 +148,13 @@ namespace Pohui.Controllers
             return PartialView(creativeRepository.Find(id));
         }
 
+        [OutputCache(Duration = 120)]
         public ActionResult ViewAllChapters(int id)
         {
             return PartialView(chapterRepository.FindAllBy(m => m.CreativeId == id).OrderBy(m => m.Position));
         }
 
+        [OutputCache(Duration = 120)]
         public ActionResult GetAllChapters(int id)
         {
             return PartialView(chapterRepository.FindAllBy(m => m.CreativeId == id).OrderBy(m => m.Position));
@@ -157,7 +164,7 @@ namespace Pohui.Controllers
         {
             Chapter newChapter = new Chapter
             {
-                Name = "Chapter",
+                Name = "Chapter" + chapterRepository.FindAllBy(m => m.CreativeId == id).Count() + 1,
                 Content = "",
                 Position = chapterRepository.FindAllBy(m => m.CreativeId == id).Count() + 1,
                 CreativeId = id
@@ -167,6 +174,7 @@ namespace Pohui.Controllers
             chapterRepository.Save();
             return null;
         }
+
         public EmptyResult EditPosition(int creativeId, int oldPos, int newPos)
         {
             var chapter = chapterRepository.FindFirstBy(m => m.CreativeId == creativeId && m.Position == oldPos);
@@ -179,16 +187,21 @@ namespace Pohui.Controllers
             return null;
         }
 
+
+        [OutputCache(Duration = 300)]
         public ActionResult ViewCreative(int id)
         {
             var creative = creativeRepository.Find(id);
             return View(creative);
         }
 
+        [OutputCache(Duration = 300, VaryByParam="id")] 
         public ActionResult ViewChapter(int id)
         {
-            return PartialView(chapterRepository.Find(id));
+            return View(chapterRepository.Find(id));
         }
+
+        [OutputCache(Duration = 60)]
         public ActionResult TagCloud()
         {
             var tags = tagRepository.GetAll().ToList();
