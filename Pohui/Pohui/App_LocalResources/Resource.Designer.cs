@@ -180,6 +180,15 @@ namespace Resources {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Язык.
         /// </summary>
+        public static string Lang {
+            get {
+                return ResourceManager.GetString("Lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Язык.
+        /// </summary>
         public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);

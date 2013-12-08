@@ -219,4 +219,7 @@
   <data name="White" xml:space="preserve">
     <value>White</value>
   </data>
+  <data name="Lang" xml:space="preserve">
+    <value>Language</value>
+  </data>
 </root>

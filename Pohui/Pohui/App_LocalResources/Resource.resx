@@ -216,4 +216,7 @@
   <data name="CreateCreative" xml:space="preserve">
     <value>Создать креатив</value>
   </data>
+  <data name="Lang" xml:space="preserve">
+    <value>Язык</value>
+  </data>
 </root>

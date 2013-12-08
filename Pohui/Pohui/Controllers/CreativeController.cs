@@ -38,7 +38,7 @@ namespace Pohui.Controllers
         }
 
         [Authorize]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 5)]
         public ActionResult UploadCreative()
         {
             return View();
@@ -79,6 +79,7 @@ namespace Pohui.Controllers
             var raki = "EditCreative"+"/" + newCreative.Id.ToString();
             return RedirectToAction(raki);
         }
+
         [Authorize]
         [OutputCache()]
         public ActionResult CheptersEditor(int id)
@@ -195,10 +196,10 @@ namespace Pohui.Controllers
             return View(creative);
         }
 
-        [OutputCache(Duration = 300, VaryByParam="id")] 
+        [OutputCache(Duration = 5, VaryByParam="id")] 
         public ActionResult ViewChapter(int id)
         {
-            return View(chapterRepository.Find(id));
+            return PartialView(chapterRepository.Find(id));
         }
 
         [OutputCache(Duration = 60)]
