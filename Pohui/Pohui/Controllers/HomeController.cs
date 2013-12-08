@@ -24,6 +24,8 @@ namespace Pohui.Controllers
             this.creativeRepository = creative;
             this.chapterRepository = chapter;
         }
+
+        [OutputCache(Duration = 120)]
         public ActionResult Index()
         {
           
@@ -36,6 +38,7 @@ namespace Pohui.Controllers
 
             return View();
         }
+
         public ActionResult ViewCreativeText(int CreativeId)
         {
              var chapter = chapterRepository.Find(CreativeId);  ;
@@ -48,6 +51,7 @@ namespace Pohui.Controllers
 
             return View();
         }
+
         public ActionResult SetTheme(string theme)
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;
@@ -66,6 +70,7 @@ namespace Pohui.Controllers
             }
             return Redirect(returnUrl);
         }
+
         public ActionResult ChangeCulture(string lang)
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;
@@ -88,6 +93,7 @@ namespace Pohui.Controllers
             return Redirect(returnUrl);
         }
 
+        [OutputCache()]
         public ActionResult Search(string searchString)
         {
             SearchResult searchResult = new SearchResult

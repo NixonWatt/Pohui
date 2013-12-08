@@ -11,6 +11,7 @@ using Pohui.Filters;
 using Pohui.Lucene;
 using System.Net.Mail;
 using System.Net;
+using System.Web.Caching;
 
 namespace Pohui.Controllers
 {
@@ -32,6 +33,7 @@ namespace Pohui.Controllers
         }
 
         [AllowAnonymous]
+        [OutputCache(Duration = 3600)]
         public ActionResult Login(string returnUrl)
         {
             
@@ -73,6 +75,7 @@ namespace Pohui.Controllers
         // GET: /Account/Register
 
         [AllowAnonymous]
+        [OutputCache(Duration = 3600)]
         public ActionResult Register()
         {
             return View();
@@ -133,6 +136,7 @@ namespace Pohui.Controllers
         //
         // GET: /Account/Manage
 
+        [OutputCache()]
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -177,6 +181,7 @@ namespace Pohui.Controllers
             return View(model);
         }
 
+        [OutputCache(Duration = 120)]
         [Authorize(Roles = ("Admin"))]
         public ActionResult Administration()
         {
@@ -186,6 +191,7 @@ namespace Pohui.Controllers
         }
 
         [Authorize]
+        [OutputCache()]
         public ActionResult ProfilePage(string userName)
         {
             var user = repository.FindFirstBy(m => m.Login == userName);
