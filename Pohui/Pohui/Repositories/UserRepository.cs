@@ -50,6 +50,11 @@ namespace Pohui.Models
                 WebSecurity.ResetPassword(token, "droppedpassword");
             }
 
+            void IUser.EditCreativeCount(User entity)
+            {
+                Context.Set<User>().Attach(entity);
+                Context.Entry(entity).Property(m => m.CreativeCount).IsModified = true;
+            }
         }
     
 }

@@ -9,5 +9,6 @@ namespace Pohui.Models
     {
         void SetAdminRole(int id);
         void DropPassword(int id);
+        void EditCreativeCount(User entity);
     }
 }

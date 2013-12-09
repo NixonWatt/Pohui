@@ -128,5 +128,3 @@ C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.csproj.Ge
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\en\Pohui.resources.dll
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.dll
 C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.pdb
-C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.Migrations.DbMigrationsConfigurationAutomaticMigrationsEnabledtrue.resources
-C:\Users\Igor\Documents\GitHub\Pohui\Pohui\Pohui\Pohui\obj\Debug\Pohui.csprojResolveAssemblyReference.cache

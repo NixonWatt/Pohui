@@ -22,7 +22,7 @@ namespace Pohui.Models
         public int UserId { get; set; }
         public string Login { get; set; }
         public string Email { get; set; }
-        public ICollection<Creative> Creatives { get; set; }
+        public int CreativeCount { get; set; }
         public ICollection<Like> Likes { get; set; }
     }
 

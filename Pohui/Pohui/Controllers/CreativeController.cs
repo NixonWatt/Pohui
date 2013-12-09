@@ -58,6 +58,9 @@ namespace Pohui.Controllers
             };
             creativeRepository.Create(newCreative);
             creativeRepository.Save();
+            var user = userRepository.FindFirstBy(m => m.Login == User.Identity.Name);
+            user.CreativeCount++;
+            userRepository.EditCreativeCount(user);
             LuceneCreativeSearch.AddUpdateLuceneIndex(newCreative);
             foreach (var tag in newCreative.Tags)
             {
@@ -67,7 +70,7 @@ namespace Pohui.Controllers
             tagRepository.Save();
             Chapter newChapter = new Chapter
             {
-                Name = "Глава 1",
+                Name = "Chapter 0",
                 Content = "",
                 CreativeId = newCreative.Id,
                 Position = 0
@@ -147,13 +150,13 @@ namespace Pohui.Controllers
             return PartialView(creativeRepository.Find(id));
         }
 
-        [OutputCache(Duration = 120)]
+        [OutputCache(Duration = 2)]
         public ActionResult ViewAllChapters(int id)
         {
             return PartialView(chapterRepository.FindAllBy(m => m.CreativeId == id).OrderBy(m => m.Position));
         }
 
-        [OutputCache(Duration = 120)]
+        [OutputCache(Duration = 2)]
         public ActionResult GetAllChapters(int id)
         {
             return PartialView(chapterRepository.FindAllBy(m => m.CreativeId == id).OrderBy(m => m.Position));

@@ -94,7 +94,7 @@ namespace Pohui.Controllers
                 // Попытка зарегистрировать пользователя
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.Login, model.Password, new { Email = model.Email });
+                    WebSecurity.CreateUserAndAccount(model.Login, model.Password, new { Email = model.Email, CreativeCount = 0 });
                     if (model.Login == "Admin")
                         Roles.AddUserToRole("Admin", "Admin");
                     else Roles.AddUserToRole(model.Login, "User");
