@@ -8,18 +8,25 @@
         </div>
    
     <div class="col-md-2" >
-        @Html.Partial("_Diagram")
+         <div id="Diagram"></div>
         <div id="Tag"></div>
     </div> </div>
 
 
 <script type="text/javascript">
     $.ajax({
+        url: '/Home/Diagram',
+        success: function (response) {
+            $("#Diagram").html(response);
+        }
+    });
+    $.ajax({
         url: '/Creative/TagCloud',
         success: function (response) {
             $("#Tag").html(response);
         }
     });
+
 </script>
 <script>
     $.ajax({
