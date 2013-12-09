@@ -10,31 +10,35 @@
 </hgroup>
 
 <section id="loginForm">
-<h2>@MyRes.UseForLoginIntoLocalProfile</h2>
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>@MyRes.LoginForm</legend>
-        <ol>
-            <li>
-              @MyRes.Name
-                @Html.TextBoxFor(m => m.Login)
-                @Html.ValidationMessageFor(m => m.Login)
-            </li>
-            <li>
-              @MyRes.Password
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </li>
-            <li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-               @MyRes.RememberMe
-            </li>
-        </ol>
-        <input type="submit" value="@MyRes.LogIn" />
-    </fieldset>
+<div class="col-lg-10">
+    <div class="well">
+        <form class="bs-example form-horizontal">
+            <fieldset>
+                <legend>Login Form</legend>
+                <div class="form-group">
+                    <p class="col-lg-3 control-label">@MyRes.Name</p>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(m => m.Login, new { @class = "form-control", @placeholder = @MyRes.Name })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="col-lg-3 control-label">@MyRes.Password</p>
+                    <div class="col-lg-8">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = @MyRes.Password })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-6">
+                        <input type="submit" class="btn btn-success" value="Submit" />
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
     <p>
         @Html.ActionLink(@MyRes.Register, "Register"), @MyRes.IfYouDontHaveProfile.
     </p>

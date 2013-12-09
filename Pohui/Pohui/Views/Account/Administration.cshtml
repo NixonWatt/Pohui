@@ -9,7 +9,7 @@
 {<div>
     @if (User.Identity.Name != user.Login)
     {
-    <a class="btn btn-default btn-lg" href="#">@user.Login</a>
+    <a class="btn btn-default btn-lg" href="/Account/ProfilePage?userName=@user.Login">@user.Login</a>
     <a class="btn btn-danger" href="Delete?id=@user.UserId">@MyRes.Delete</a>
     <a class="btn btn-warning" href="DropPassword?id=@user.UserId">@MyRes.ResetPassword</a>
         if (Roles.IsUserInRole(user.Login, "Admin"))

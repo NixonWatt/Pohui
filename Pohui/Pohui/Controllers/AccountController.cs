@@ -33,7 +33,7 @@ namespace Pohui.Controllers
         }
 
         [AllowAnonymous]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 1)]
         public ActionResult Login(string returnUrl)
         {
             
@@ -191,7 +191,7 @@ namespace Pohui.Controllers
         }
 
         [Authorize]
-        [OutputCache(Duration=20)]
+        [OutputCache(Duration=2)]
         public ActionResult ProfilePage(string userName)
         {
             var user = repository.FindFirstBy(m => m.Login == userName);

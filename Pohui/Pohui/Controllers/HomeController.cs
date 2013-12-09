@@ -93,7 +93,7 @@ namespace Pohui.Controllers
             return Redirect(returnUrl);
         }
 
-        [OutputCache()]
+        [OutputCache(Duration=5)]
         public ActionResult Search(string searchString)
         {
             SearchResult searchResult = new SearchResult

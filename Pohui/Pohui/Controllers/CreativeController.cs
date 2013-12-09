@@ -163,7 +163,7 @@ namespace Pohui.Controllers
         {
             Chapter newChapter = new Chapter
             {
-                Name = "Chapter" + chapterRepository.FindAllBy(m => m.CreativeId == id).Count() + 1,
+                Name = "Chapter" + chapterRepository.FindAllBy(m => m.CreativeId == id).Count(),
                 Content = "",
                 Position = chapterRepository.FindAllBy(m => m.CreativeId == id).Count() + 1,
                 CreativeId = id
@@ -194,7 +194,7 @@ namespace Pohui.Controllers
             return View(creative);
         }
 
-        [OutputCache(Duration = 5, VaryByParam="id")] 
+        [OutputCache(Duration = 5)] 
         public ActionResult ViewChapter(int id)
         {
             return PartialView(chapterRepository.Find(id));
@@ -217,21 +217,21 @@ namespace Pohui.Controllers
             return PartialView(tags);
         }
 
-        public ActionResult ViewCreatives(int id)
+        public ActionResult ViewCreatives(int? id)
         {
-            if (id.ToString() == null)
+            if (id == null)
                 return PartialView(creativeRepository.GetAll().OrderByDescending(m => m.Votes));
             else
             {
-                if (tagRepository.Find(id) != null)
+                if (tagRepository.Find(id.Value) != null)
                 {
-                    var tag = tagRepository.Find(id);
+                    var tag = tagRepository.Find(id.Value);
                     var creatives = tagRepository.FindAllBy(m => m.Name == tag.Name).Select(m => m.Creative).OrderByDescending(m => m.Votes);
                     return PartialView(creatives);
                 }
-                if (userRepository.Find(id) != null)
+                if (userRepository.Find(id.Value) != null)
                 {
-                    var user = userRepository.Find(id);
+                    var user = userRepository.Find(id.Value);
                     var creatives = creativeRepository.FindAllBy(m => m.User == user.Login);
                     return PartialView(creatives);
                 }

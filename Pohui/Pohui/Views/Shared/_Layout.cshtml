@@ -54,12 +54,12 @@
                         <li>
                             <a href="\" class="btn">@MyRes.Home</a>
                         </li>
-                        @* @if (User.IsInRole("Admin"))
+                         @if (User.IsInRole("Admin"))
                         {
                             <li>
                                 <a href="\Account\Administration" class="btn">Admin</a>
                             </li>
-                        }*@
+                        }
                         <li>
                             @Html.ActionLink(@MyRes.AddCreative, "UploadCreative", "Creative")
                         </li>
@@ -67,10 +67,10 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            @*@using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
                                 <input type="text" class="form-control col-lg-4" placeholder="Search" name="searchString">
-                            }*@
+                            }
                         </li>
                         @Html.Partial("_LoginPartial")
                         <li></li>

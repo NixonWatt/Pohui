@@ -1,31 +1,17 @@
 ﻿@model Pohui.Models.Chapter
 <head>
-     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-            <link  href="http://fotorama.s3.amazonaws.com/4.4.8/fotorama.css" rel="stylesheet">
-            <script src="http://fotorama.s3.amazonaws.com/4.4.8/fotorama.js"></script>
-    </head>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="http://fotorama.s3.amazonaws.com/4.4.8/fotorama.css" rel="stylesheet">
+    <script src="http://fotorama.s3.amazonaws.com/4.4.8/fotorama.js"></script>
+</head>
 
-        @if (Model.Content.Length > 0)
-        {
-            
-    
-  
-<div class="fotorama">
-<div data-img="@("/Images/book.png")">
-                <div class="container col-lg-6" style="top: 10px;">
-                    @Model.Content
-                </div>
+@if (Model.Content.Length > 0)
+{ 
+    <div class="fotorama">
+        <div data-img="@("/Images/book.png")">
+            <div class="container col-lg-6" style="top: 10px;">
+                @Model.Content
             </div>
-    </div>}@*
-        }
-        else
-        {
-            for (int i = 0; i < @Model.Content.Length % 2150; i++)
-            {
-            <div data-img="@("/Images/book.png")">
-                <div class="container col-lg-6" style="top: 10px;">
-                    @Model.Content.Substring(i, i + 2150)
-                </div>
-            </div>
-            }
-        }*@
+        </div>
+    </div>
+}
