@@ -243,6 +243,10 @@
     <Compile Include="Lucene\LuceneCreativeSearch.cs" />
     <Compile Include="Lucene\LuceneTagSearch.cs" />
     <Compile Include="Lucene\LuceneUserSearch.cs" />
+    <Compile Include="Migrations\201312081929581_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.cs" />
+    <Compile Include="Migrations\201312081929581_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.Designer.cs">
+      <DependentUpon>201312081929581_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Chapter.cs" />
@@ -427,7 +431,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Account\Administration.cshtml" />
-    <Content Include="Views\Creative\UploadChapter.cshtml" />
     <Content Include="Views\Creative\UploadCreative.cshtml" />
     <Content Include="Views\Creative\_MarkDownEditor.cshtml" />
     <Content Include="Views\Home\_Diagram.cshtml" />
@@ -464,6 +467,9 @@
       <CustomToolNamespace>Resources</CustomToolNamespace>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312081929581_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.resx">
+      <DependentUpon>201312081929581_DbMigrationsConfiguration.AutomaticMigrationsEnabled=true.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -81,7 +81,7 @@ namespace Pohui.Controllers
         }
 
         [Authorize]
-        [OutputCache()]
+        [OutputCache(Duration=20)]
         public ActionResult CheptersEditor(int id)
         {
             var chapter = chapterRepository.Find(id);
@@ -100,14 +100,13 @@ namespace Pohui.Controllers
         } 
 
         [Authorize]
-        [OutputCache()]
+        [OutputCache(Duration=20)]
         public ActionResult EditCreative(int id)
         {
             return View(creativeRepository.Find(id));
         }
 
         [Authorize]
-        [OutputCache()]
         public ActionResult UploadChapter(int id)
         {
             ViewBag.ID = id;
@@ -116,7 +115,6 @@ namespace Pohui.Controllers
 
         [Authorize]
         [HttpPost]
-        [OutputCache(Duration = 3600)]
         public ActionResult UploadChapter(Chapter newChapter)
         {
             chapterRepository.Create(newChapter);
@@ -219,9 +217,26 @@ namespace Pohui.Controllers
             return PartialView(tags);
         }
 
-        public ActionResult ViewCreatives()
+        public ActionResult ViewCreatives(int id)
         {
-            return View(creativeRepository.GetAll());
+            if (id.ToString() == null)
+                return PartialView(creativeRepository.GetAll().OrderByDescending(m => m.Votes));
+            else
+            {
+                if (tagRepository.Find(id) != null)
+                {
+                    var tag = tagRepository.Find(id);
+                    var creatives = tagRepository.FindAllBy(m => m.Name == tag.Name).Select(m => m.Creative).OrderByDescending(m => m.Votes);
+                    return PartialView(creatives);
+                }
+                if (userRepository.Find(id) != null)
+                {
+                    var user = userRepository.Find(id);
+                    var creatives = creativeRepository.FindAllBy(m => m.User == user.Login);
+                    return PartialView(creatives);
+                }
+                return PartialView(creativeRepository.GetAll().OrderByDescending(m => m.Votes));
+            }
         }
     }
 }

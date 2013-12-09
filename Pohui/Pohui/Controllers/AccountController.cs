@@ -191,7 +191,7 @@ namespace Pohui.Controllers
         }
 
         [Authorize]
-        [OutputCache()]
+        [OutputCache(Duration=20)]
         public ActionResult ProfilePage(string userName)
         {
             var user = repository.FindFirstBy(m => m.Login == userName);
