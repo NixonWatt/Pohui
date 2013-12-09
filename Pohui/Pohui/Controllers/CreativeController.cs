@@ -67,7 +67,7 @@ namespace Pohui.Controllers
             tagRepository.Save();
             Chapter newChapter = new Chapter
             {
-                Name = "Глава 1",
+                Name = "Chapter 1",
                 Content = "",
                 CreativeId = newCreative.Id,
                 Position = 0
@@ -81,7 +81,7 @@ namespace Pohui.Controllers
         }
 
         [Authorize]
-        [OutputCache(Duration=20)]
+        [OutputCache(Duration=5)]
         public ActionResult CheptersEditor(int id)
         {
             var chapter = chapterRepository.Find(id);
@@ -100,7 +100,7 @@ namespace Pohui.Controllers
         } 
 
         [Authorize]
-        [OutputCache(Duration=20)]
+        [OutputCache(Duration=5)]
         public ActionResult EditCreative(int id)
         {
             return View(creativeRepository.Find(id));
@@ -147,13 +147,13 @@ namespace Pohui.Controllers
             return PartialView(creativeRepository.Find(id));
         }
 
-        [OutputCache(Duration = 120)]
+        [OutputCache(Duration = 5)]
         public ActionResult ViewAllChapters(int id)
         {
             return PartialView(chapterRepository.FindAllBy(m => m.CreativeId == id).OrderBy(m => m.Position));
         }
 
-        [OutputCache(Duration = 120)]
+        [OutputCache(Duration = 1)]
         public ActionResult GetAllChapters(int id)
         {
             return PartialView(chapterRepository.FindAllBy(m => m.CreativeId == id).OrderBy(m => m.Position));
@@ -187,7 +187,7 @@ namespace Pohui.Controllers
         }
 
 
-        [OutputCache(Duration = 300)]
+        [OutputCache(Duration = 5)]
         public ActionResult ViewCreative(int id)
         {
             var creative = creativeRepository.Find(id);
@@ -200,7 +200,7 @@ namespace Pohui.Controllers
             return PartialView(chapterRepository.Find(id));
         }
 
-        [OutputCache(Duration = 60)]
+        [OutputCache(Duration = 5)]
         public ActionResult TagCloud()
         {
             var tags = tagRepository.GetAll().ToList();

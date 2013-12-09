@@ -54,12 +54,12 @@
                         <li>
                             <a href="\" class="btn">@MyRes.Home</a>
                         </li>
-                         @if (User.IsInRole("Admin"))
+                        @* @if (User.IsInRole("Admin"))
                         {
                             <li>
                                 <a href="\Account\Administration" class="btn">Admin</a>
                             </li>
-                        }
+                        }*@
                         <li>
                             @Html.ActionLink(@MyRes.AddCreative, "UploadCreative", "Creative")
                         </li>
